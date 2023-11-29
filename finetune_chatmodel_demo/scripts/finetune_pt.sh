@@ -15,8 +15,8 @@ SAVE_INTERVAL=500
 DATESTR=`date +%Y%m%d-%H%M%S`
 RUN_NAME=advertise_gen_pt
 
-BASE_MODEL_PATH=THUDM/chatglm3-6b
-DATASET_PATH=formatted_data/advertise_gen.jsonl
+BASE_MODEL_PATH=../../../chatglm3-6b
+DATASET_PATH=../traindata/chatglm3traindata.jsonl
 OUTPUT_DIR=output/${RUN_NAME}-${DATESTR}-${PRE_SEQ_LEN}-${LR}
 
 mkdir -p $OUTPUT_DIR
@@ -36,3 +36,4 @@ torchrun --standalone --nnodes=1 --nproc_per_node=$NUM_GPUS finetune.py \
     --save_steps $SAVE_INTERVAL \
     --learning_rate $LR \
     --pre_seq_len $PRE_SEQ_LEN 2>&1 | tee ${OUTPUT_DIR}/train.log
+    --quantization_bit 4

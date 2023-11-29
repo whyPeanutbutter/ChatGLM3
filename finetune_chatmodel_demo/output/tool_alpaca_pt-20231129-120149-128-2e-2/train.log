@@ -1,0 +1,1451 @@
+master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+Setting ds_accelerator to cuda (auto detect)
+11/29/2023 12:01:52 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1distributed training: True, 16-bits training: False
+11/29/2023 12:01:52 - INFO - __main__ - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_backend=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=False,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'fsdp_min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=16,
+gradient_checkpointing=False,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.02,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=output/tool_alpaca_pt-20231129-120149-128-2e-2/runs/Nov29_12-01-52_freeview-Precision-3650-Tower,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=1.0,
+logging_strategy=steps,
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=1000,
+metric_for_best_model=None,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=3.0,
+optim=adamw_hf,
+optim_args=None,
+output_dir=output/tool_alpaca_pt-20231129-120149-128-2e-2,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=1,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=['tensorboard'],
+resume_from_checkpoint=None,
+run_name=output/tool_alpaca_pt-20231129-120149-128-2e-2,
+save_on_each_node=False,
+save_safetensors=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+sortish_sampler=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+xpu_backend=None,
+)
+config.json:   0%|          | 0.00/1.32k [00:00<?, ?B/s]config.json: 100%|██████████| 1.32k/1.32k [00:00<00:00, 4.28MB/s]
+[INFO|configuration_utils.py:669] 2023-11-29 12:01:53,873 >> loading configuration file config.json from cache at /home/freeview/.cache/huggingface/hub/models--THUDM--chatglm3-6b/snapshots/e46a14881eae613281abbd266ee918e93a56018f/config.json
+configuration_chatglm.py:   0%|          | 0.00/2.33k [00:00<?, ?B/s]configuration_chatglm.py: 100%|██████████| 2.33k/2.33k [00:00<00:00, 8.07MB/s]
+[WARNING|dynamic_module_utils.py:324] 2023-11-29 12:01:54,686 >> A new version of the following files was downloaded from https://huggingface.co/THUDM/chatglm3-6b:
+- configuration_chatglm.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+[INFO|configuration_utils.py:669] 2023-11-29 12:01:55,143 >> loading configuration file config.json from cache at /home/freeview/.cache/huggingface/hub/models--THUDM--chatglm3-6b/snapshots/e46a14881eae613281abbd266ee918e93a56018f/config.json
+[INFO|configuration_utils.py:725] 2023-11-29 12:01:55,145 >> Model config ChatGLMConfig {
+  "_name_or_path": "THUDM/chatglm3-6b",
+  "add_bias_linear": false,
+  "add_qkv_bias": true,
+  "apply_query_key_layer_scaling": true,
+  "apply_residual_connection_post_layernorm": false,
+  "architectures": [
+    "ChatGLMModel"
+  ],
+  "attention_dropout": 0.0,
+  "attention_softmax_in_fp32": true,
+  "auto_map": {
+    "AutoConfig": "THUDM/chatglm3-6b--configuration_chatglm.ChatGLMConfig",
+    "AutoModel": "THUDM/chatglm3-6b--modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForCausalLM": "THUDM/chatglm3-6b--modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForSeq2SeqLM": "THUDM/chatglm3-6b--modeling_chatglm.ChatGLMForConditionalGeneration",
+    "AutoModelForSequenceClassification": "THUDM/chatglm3-6b--modeling_chatglm.ChatGLMForSequenceClassification"
+  },
+  "bias_dropout_fusion": true,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "ffn_hidden_size": 13696,
+  "fp32_residual_connection": false,
+  "hidden_dropout": 0.0,
+  "hidden_size": 4096,
+  "kv_channels": 128,
+  "layernorm_epsilon": 1e-05,
+  "model_type": "chatglm",
+  "multi_query_attention": true,
+  "multi_query_group_num": 2,
+  "num_attention_heads": 32,
+  "num_layers": 28,
+  "original_rope": true,
+  "pad_token_id": 0,
+  "padded_vocab_size": 65024,
+  "post_layer_norm": true,
+  "pre_seq_len": null,
+  "prefix_projection": false,
+  "quantization_bit": 0,
+  "rmsnorm": true,
+  "seq_length": 8192,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.30.2",
+  "use_cache": true,
+  "vocab_size": 65024
+}
+
+tokenizer_config.json:   0%|          | 0.00/244 [00:00<?, ?B/s]tokenizer_config.json: 100%|██████████| 244/244 [00:00<00:00, 847kB/s]
+tokenization_chatglm.py:   0%|          | 0.00/12.2k [00:00<?, ?B/s]tokenization_chatglm.py: 100%|██████████| 12.2k/12.2k [00:00<00:00, 27.6MB/s]
+[WARNING|dynamic_module_utils.py:324] 2023-11-29 12:01:56,876 >> A new version of the following files was downloaded from https://huggingface.co/THUDM/chatglm3-6b:
+- tokenization_chatglm.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+tokenizer.model:   0%|          | 0.00/1.02M [00:00<?, ?B/s]tokenizer.model: 100%|██████████| 1.02M/1.02M [00:00<00:00, 1.80MB/s]tokenizer.model: 100%|██████████| 1.02M/1.02M [00:00<00:00, 1.80MB/s]
+[INFO|tokenization_utils_base.py:1823] 2023-11-29 12:01:59,493 >> loading file tokenizer.model from cache at /home/freeview/.cache/huggingface/hub/models--THUDM--chatglm3-6b/snapshots/e46a14881eae613281abbd266ee918e93a56018f/tokenizer.model
+[INFO|tokenization_utils_base.py:1823] 2023-11-29 12:01:59,494 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:1823] 2023-11-29 12:01:59,494 >> loading file special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:1823] 2023-11-29 12:01:59,494 >> loading file tokenizer_config.json from cache at /home/freeview/.cache/huggingface/hub/models--THUDM--chatglm3-6b/snapshots/e46a14881eae613281abbd266ee918e93a56018f/tokenizer_config.json
+modeling_chatglm.py:   0%|          | 0.00/55.6k [00:00<?, ?B/s]modeling_chatglm.py: 100%|██████████| 55.6k/55.6k [00:00<00:00, 612kB/s]
+quantization.py:   0%|          | 0.00/14.7k [00:00<?, ?B/s]quantization.py: 100%|██████████| 14.7k/14.7k [00:00<00:00, 37.1MB/s]
+[WARNING|dynamic_module_utils.py:324] 2023-11-29 12:02:01,391 >> A new version of the following files was downloaded from https://huggingface.co/THUDM/chatglm3-6b:
+- quantization.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+[WARNING|dynamic_module_utils.py:324] 2023-11-29 12:02:01,391 >> A new version of the following files was downloaded from https://huggingface.co/THUDM/chatglm3-6b:
+- modeling_chatglm.py
+- quantization.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+pytorch_model.bin.index.json:   0%|          | 0.00/20.4k [00:00<?, ?B/s]pytorch_model.bin.index.json: 100%|██████████| 20.4k/20.4k [00:00<00:00, 42.4MB/s]
+[INFO|modeling_utils.py:2578] 2023-11-29 12:02:04,060 >> loading weights file pytorch_model.bin from cache at /home/freeview/.cache/huggingface/hub/models--THUDM--chatglm3-6b/snapshots/e46a14881eae613281abbd266ee918e93a56018f/pytorch_model.bin.index.json
+Downloading shards:   0%|          | 0/7 [00:00<?, ?it/s]
+pytorch_model-00001-of-00007.bin:   0%|          | 0.00/1.83G [00:00<?, ?B/s][A
+pytorch_model-00001-of-00007.bin:   1%|          | 10.5M/1.83G [00:04<12:42, 2.38MB/s][A
+pytorch_model-00001-of-00007.bin:   1%|          | 21.0M/1.83G [00:08<12:01, 2.50MB/s][A
+pytorch_model-00001-of-00007.bin:   2%|▏         | 31.5M/1.83G [00:12<11:39, 2.57MB/s][A
+pytorch_model-00001-of-00007.bin:   2%|▏         | 41.9M/1.83G [00:17<12:29, 2.38MB/s][A
+pytorch_model-00001-of-00007.bin:   3%|▎         | 52.4M/1.83G [00:22<13:17, 2.22MB/s][A
+pytorch_model-00001-of-00007.bin:   3%|▎         | 62.9M/1.83G [00:26<12:55, 2.28MB/s][A
+pytorch_model-00001-of-00007.bin:   4%|▍         | 73.4M/1.83G [00:31<12:22, 2.36MB/s][A
+pytorch_model-00001-of-00007.bin:   5%|▍         | 83.9M/1.83G [00:36<13:37, 2.13MB/s][A
+pytorch_model-00001-of-00007.bin:   5%|▌         | 94.4M/1.83G [00:43<14:40, 1.97MB/s][A
+pytorch_model-00001-of-00007.bin:   6%|▌         | 105M/1.83G [00:48<14:25, 1.99MB/s] [A
+pytorch_model-00001-of-00007.bin:   6%|▋         | 115M/1.83G [00:53<14:01, 2.03MB/s][A
+pytorch_model-00001-of-00007.bin:   7%|▋         | 126M/1.83G [00:57<13:11, 2.15MB/s][A
+pytorch_model-00001-of-00007.bin:   7%|▋         | 136M/1.83G [01:02<13:10, 2.14MB/s][A
+pytorch_model-00001-of-00007.bin:   8%|▊         | 147M/1.83G [01:06<12:17, 2.28MB/s][A
+pytorch_model-00001-of-00007.bin:   9%|▊         | 157M/1.83G [01:11<12:47, 2.18MB/s][A
+pytorch_model-00001-of-00007.bin:   9%|▉         | 168M/1.83G [01:16<12:47, 2.16MB/s][A
+pytorch_model-00001-of-00007.bin:  10%|▉         | 178M/1.83G [01:21<12:36, 2.18MB/s][A
+pytorch_model-00001-of-00007.bin:  10%|█         | 189M/1.83G [01:29<15:04, 1.81MB/s][A
+pytorch_model-00001-of-00007.bin:  11%|█         | 199M/1.83G [01:36<15:43, 1.73MB/s][A
+pytorch_model-00001-of-00007.bin:  11%|█▏        | 210M/1.83G [01:41<15:12, 1.77MB/s][A
+pytorch_model-00001-of-00007.bin:  12%|█▏        | 220M/1.83G [01:46<14:28, 1.85MB/s][A
+pytorch_model-00001-of-00007.bin:  13%|█▎        | 231M/1.83G [01:53<15:16, 1.74MB/s][A
+pytorch_model-00001-of-00007.bin:  13%|█▎        | 241M/1.83G [01:58<14:02, 1.88MB/s][A
+pytorch_model-00001-of-00007.bin:  14%|█▍        | 252M/1.83G [02:02<12:58, 2.02MB/s][A
+pytorch_model-00001-of-00007.bin:  14%|█▍        | 262M/1.83G [02:07<12:37, 2.07MB/s][A
+pytorch_model-00001-of-00007.bin:  15%|█▍        | 273M/1.83G [02:11<11:58, 2.16MB/s][A
+pytorch_model-00001-of-00007.bin:  15%|█▌        | 283M/1.83G [02:15<11:22, 2.26MB/s][A
+pytorch_model-00001-of-00007.bin:  16%|█▌        | 294M/1.83G [02:19<10:45, 2.38MB/s][A
+pytorch_model-00001-of-00007.bin:  17%|█▋        | 304M/1.83G [02:25<11:50, 2.14MB/s][A
+pytorch_model-00001-of-00007.bin:  17%|█▋        | 315M/1.83G [02:30<11:52, 2.13MB/s][A
+pytorch_model-00001-of-00007.bin:  18%|█▊        | 325M/1.83G [02:34<11:11, 2.24MB/s][A
+pytorch_model-00001-of-00007.bin:  18%|█▊        | 336M/1.83G [02:38<10:48, 2.30MB/s][A
+pytorch_model-00001-of-00007.bin:  19%|█▉        | 346M/1.83G [02:43<10:34, 2.34MB/s][A
+pytorch_model-00001-of-00007.bin:  20%|█▉        | 357M/1.83G [02:47<10:13, 2.40MB/s][A
+pytorch_model-00001-of-00007.bin:  20%|██        | 367M/1.83G [02:51<09:50, 2.48MB/s][A
+pytorch_model-00001-of-00007.bin:  21%|██        | 377M/1.83G [02:55<10:03, 2.40MB/s][A
+pytorch_model-00001-of-00007.bin:  21%|██        | 388M/1.83G [03:00<10:05, 2.38MB/s][A
+pytorch_model-00001-of-00007.bin:  22%|██▏       | 398M/1.83G [03:05<10:16, 2.32MB/s][A
+pytorch_model-00001-of-00007.bin:  22%|██▏       | 409M/1.83G [03:09<10:02, 2.35MB/s][A
+pytorch_model-00001-of-00007.bin:  23%|██▎       | 419M/1.83G [03:13<09:40, 2.43MB/s][A
+pytorch_model-00001-of-00007.bin:  24%|██▎       | 430M/1.83G [03:18<10:01, 2.32MB/s][A
+pytorch_model-00001-of-00007.bin:  24%|██▍       | 440M/1.83G [03:23<10:14, 2.26MB/s][A
+pytorch_model-00001-of-00007.bin:  25%|██▍       | 451M/1.83G [03:30<11:47, 1.95MB/s][A
+pytorch_model-00001-of-00007.bin:  25%|██▌       | 461M/1.83G [03:35<11:17, 2.02MB/s][A
+pytorch_model-00001-of-00007.bin:  26%|██▌       | 472M/1.83G [03:39<10:39, 2.12MB/s][A
+pytorch_model-00001-of-00007.bin:  26%|██▋       | 482M/1.83G [03:44<10:23, 2.16MB/s][A
+pytorch_model-00001-of-00007.bin:  27%|██▋       | 493M/1.83G [03:50<10:50, 2.05MB/s][A
+pytorch_model-00001-of-00007.bin:  28%|██▊       | 503M/1.83G [03:55<11:10, 1.97MB/s][A
+pytorch_model-00001-of-00007.bin:  28%|██▊       | 514M/1.83G [04:00<10:23, 2.11MB/s][A
+pytorch_model-00001-of-00007.bin:  29%|██▊       | 524M/1.83G [04:04<09:47, 2.22MB/s][A
+pytorch_model-00001-of-00007.bin:  29%|██▉       | 535M/1.83G [04:08<09:17, 2.32MB/s][A
+pytorch_model-00001-of-00007.bin:  30%|██▉       | 545M/1.83G [04:12<09:04, 2.36MB/s][A
+pytorch_model-00001-of-00007.bin:  30%|███       | 556M/1.83G [04:16<09:00, 2.35MB/s][A
+pytorch_model-00001-of-00007.bin:  31%|███       | 566M/1.83G [04:21<08:51, 2.38MB/s][A
+pytorch_model-00001-of-00007.bin:  32%|███▏      | 577M/1.83G [04:27<09:52, 2.11MB/s][A
+pytorch_model-00001-of-00007.bin:  32%|███▏      | 587M/1.83G [04:31<09:02, 2.29MB/s][A
+pytorch_model-00001-of-00007.bin:  33%|███▎      | 598M/1.83G [04:35<08:41, 2.36MB/s][A
+pytorch_model-00001-of-00007.bin:  33%|███▎      | 608M/1.83G [04:39<08:36, 2.36MB/s][A
+pytorch_model-00001-of-00007.bin:  34%|███▍      | 619M/1.83G [04:44<08:26, 2.39MB/s][A
+pytorch_model-00001-of-00007.bin:  34%|███▍      | 629M/1.83G [04:50<09:38, 2.07MB/s][A
+pytorch_model-00001-of-00007.bin:  35%|███▍      | 640M/1.83G [04:55<09:27, 2.09MB/s][A
+pytorch_model-00001-of-00007.bin:  36%|███▌      | 650M/1.83G [05:00<09:30, 2.06MB/s][A
+pytorch_model-00001-of-00007.bin:  36%|███▌      | 661M/1.83G [05:04<08:37, 2.26MB/s][A
+pytorch_model-00001-of-00007.bin:  37%|███▋      | 671M/1.83G [05:08<08:20, 2.31MB/s][A
+pytorch_model-00001-of-00007.bin:  37%|███▋      | 682M/1.83G [05:13<08:29, 2.25MB/s][A
+pytorch_model-00001-of-00007.bin:  38%|███▊      | 692M/1.83G [05:20<09:32, 1.98MB/s][A
+pytorch_model-00001-of-00007.bin:  38%|███▊      | 703M/1.83G [05:24<08:34, 2.19MB/s][A
+pytorch_model-00001-of-00007.bin:  39%|███▉      | 713M/1.83G [05:27<07:40, 2.42MB/s][A
+pytorch_model-00001-of-00007.bin:  40%|███▉      | 724M/1.83G [05:30<07:11, 2.56MB/s][A
+pytorch_model-00001-of-00007.bin:  40%|████      | 734M/1.83G [05:34<06:52, 2.65MB/s][A
+pytorch_model-00001-of-00007.bin:  41%|████      | 744M/1.83G [05:37<06:28, 2.79MB/s][A
+pytorch_model-00001-of-00007.bin:  41%|████▏     | 755M/1.83G [05:41<06:22, 2.80MB/s][A
+pytorch_model-00001-of-00007.bin:  42%|████▏     | 765M/1.83G [05:45<06:18, 2.80MB/s][A
+pytorch_model-00001-of-00007.bin:  42%|████▏     | 776M/1.83G [05:48<06:10, 2.84MB/s][A
+pytorch_model-00001-of-00007.bin:  43%|████▎     | 786M/1.83G [05:52<06:11, 2.81MB/s][A
+pytorch_model-00001-of-00007.bin:  44%|████▎     | 797M/1.83G [05:57<06:25, 2.67MB/s][A
+pytorch_model-00001-of-00007.bin:  44%|████▍     | 807M/1.83G [06:00<06:16, 2.71MB/s][A
+pytorch_model-00001-of-00007.bin:  45%|████▍     | 818M/1.83G [06:05<06:27, 2.61MB/s][A
+pytorch_model-00001-of-00007.bin:  45%|████▌     | 828M/1.83G [06:09<06:18, 2.64MB/s][A
+pytorch_model-00001-of-00007.bin:  46%|████▌     | 839M/1.83G [06:12<06:09, 2.67MB/s][A
+pytorch_model-00001-of-00007.bin:  46%|████▋     | 849M/1.83G [06:17<06:37, 2.46MB/s][A
+pytorch_model-00001-of-00007.bin:  47%|████▋     | 860M/1.83G [06:21<06:17, 2.57MB/s][A
+pytorch_model-00001-of-00007.bin:  48%|████▊     | 870M/1.83G [06:25<06:16, 2.55MB/s][A
+pytorch_model-00001-of-00007.bin:  48%|████▊     | 881M/1.83G [06:29<06:06, 2.58MB/s][A
+pytorch_model-00001-of-00007.bin:  49%|████▉     | 891M/1.83G [06:32<05:41, 2.74MB/s][A
+pytorch_model-00001-of-00007.bin:  49%|████▉     | 902M/1.83G [06:37<05:50, 2.64MB/s][A
+pytorch_model-00001-of-00007.bin:  50%|████▉     | 912M/1.83G [06:42<06:19, 2.41MB/s][A
+pytorch_model-00001-of-00007.bin:  50%|█████     | 923M/1.83G [06:46<06:14, 2.42MB/s][A
+pytorch_model-00001-of-00007.bin:  51%|█████     | 933M/1.83G [06:50<05:55, 2.52MB/s][A
+pytorch_model-00001-of-00007.bin:  52%|█████▏    | 944M/1.83G [06:54<05:33, 2.65MB/s][A
+pytorch_model-00001-of-00007.bin:  52%|█████▏    | 954M/1.83G [06:57<05:15, 2.77MB/s][A
+pytorch_model-00001-of-00007.bin:  53%|█████▎    | 965M/1.83G [07:01<05:12, 2.76MB/s][A
+pytorch_model-00001-of-00007.bin:  53%|█████▎    | 975M/1.83G [07:04<05:06, 2.78MB/s][A
+pytorch_model-00001-of-00007.bin:  54%|█████▍    | 986M/1.83G [07:08<05:08, 2.73MB/s][A
+pytorch_model-00001-of-00007.bin:  55%|█████▍    | 996M/1.83G [07:13<05:12, 2.66MB/s][A
+pytorch_model-00001-of-00007.bin:  55%|█████▌    | 1.01G/1.83G [07:16<05:06, 2.68MB/s][A
+pytorch_model-00001-of-00007.bin:  56%|█████▌    | 1.02G/1.83G [07:21<05:12, 2.60MB/s][A
+pytorch_model-00001-of-00007.bin:  56%|█████▌    | 1.03G/1.83G [07:25<05:10, 2.58MB/s][A
+pytorch_model-00001-of-00007.bin:  57%|█████▋    | 1.04G/1.83G [07:29<05:04, 2.60MB/s][A
+pytorch_model-00001-of-00007.bin:  57%|█████▋    | 1.05G/1.83G [07:33<04:58, 2.61MB/s][A
+pytorch_model-00001-of-00007.bin:  58%|█████▊    | 1.06G/1.83G [07:36<04:41, 2.73MB/s][A
+pytorch_model-00001-of-00007.bin:  59%|█████▊    | 1.07G/1.83G [07:41<04:46, 2.64MB/s][A
+pytorch_model-00001-of-00007.bin:  59%|█████▉    | 1.08G/1.83G [07:44<04:33, 2.73MB/s][A
+pytorch_model-00001-of-00007.bin:  60%|█████▉    | 1.09G/1.83G [07:48<04:31, 2.71MB/s][A
+pytorch_model-00001-of-00007.bin:  60%|██████    | 1.10G/1.83G [07:52<04:31, 2.68MB/s][A
+pytorch_model-00001-of-00007.bin:  61%|██████    | 1.11G/1.83G [07:57<04:39, 2.57MB/s][A
+pytorch_model-00001-of-00007.bin:  61%|██████▏   | 1.12G/1.83G [08:01<04:35, 2.56MB/s][A
+pytorch_model-00001-of-00007.bin:  62%|██████▏   | 1.13G/1.83G [08:04<04:25, 2.62MB/s][A
+pytorch_model-00001-of-00007.bin:  63%|██████▎   | 1.14G/1.83G [08:09<04:24, 2.59MB/s][A
+pytorch_model-00001-of-00007.bin:  63%|██████▎   | 1.15G/1.83G [08:13<04:20, 2.59MB/s][A
+pytorch_model-00001-of-00007.bin:  64%|██████▎   | 1.16G/1.83G [08:17<04:20, 2.55MB/s][A
+pytorch_model-00001-of-00007.bin:  64%|██████▍   | 1.17G/1.83G [08:22<04:25, 2.46MB/s][A
+pytorch_model-00001-of-00007.bin:  65%|██████▍   | 1.18G/1.83G [08:25<04:13, 2.54MB/s][A
+pytorch_model-00001-of-00007.bin:  65%|██████▌   | 1.20G/1.83G [08:30<04:10, 2.53MB/s][A
+pytorch_model-00001-of-00007.bin:  66%|██████▌   | 1.21G/1.83G [08:34<04:02, 2.56MB/s][A
+pytorch_model-00001-of-00007.bin:  67%|██████▋   | 1.22G/1.83G [08:39<04:16, 2.38MB/s][A
+pytorch_model-00001-of-00007.bin:  67%|██████▋   | 1.23G/1.83G [08:44<04:30, 2.22MB/s][A
+pytorch_model-00001-of-00007.bin:  68%|██████▊   | 1.24G/1.83G [08:48<04:10, 2.35MB/s][A
+pytorch_model-00001-of-00007.bin:  68%|██████▊   | 1.25G/1.83G [08:52<03:54, 2.47MB/s][A
+pytorch_model-00001-of-00007.bin:  69%|██████▉   | 1.26G/1.83G [08:56<03:45, 2.52MB/s][A
+pytorch_model-00001-of-00007.bin:  69%|██████▉   | 1.27G/1.83G [09:00<03:45, 2.48MB/s][A
+pytorch_model-00001-of-00007.bin:  70%|██████▉   | 1.28G/1.83G [09:05<03:53, 2.35MB/s][A
+pytorch_model-00001-of-00007.bin:  71%|███████   | 1.29G/1.83G [09:10<03:58, 2.26MB/s][A
+pytorch_model-00001-of-00007.bin:  71%|███████   | 1.30G/1.83G [09:14<03:44, 2.35MB/s][A
+pytorch_model-00001-of-00007.bin:  72%|███████▏  | 1.31G/1.83G [09:19<03:40, 2.34MB/s][A
+pytorch_model-00001-of-00007.bin:  72%|███████▏  | 1.32G/1.83G [09:22<03:18, 2.55MB/s][A
+pytorch_model-00001-of-00007.bin:  73%|███████▎  | 1.33G/1.83G [09:26<03:13, 2.57MB/s][A
+pytorch_model-00001-of-00007.bin:  73%|███████▎  | 1.34G/1.83G [09:31<03:18, 2.45MB/s][A
+pytorch_model-00001-of-00007.bin:  74%|███████▍  | 1.35G/1.83G [09:36<03:26, 2.30MB/s][A
+pytorch_model-00001-of-00007.bin:  75%|███████▍  | 1.36G/1.83G [09:40<03:15, 2.37MB/s][A
+pytorch_model-00001-of-00007.bin:  75%|███████▌  | 1.37G/1.83G [09:44<03:01, 2.50MB/s][A
+pytorch_model-00001-of-00007.bin:  76%|███████▌  | 1.38G/1.83G [09:47<02:46, 2.66MB/s][A
+pytorch_model-00001-of-00007.bin:  76%|███████▋  | 1.39G/1.83G [09:51<02:41, 2.67MB/s][A
+pytorch_model-00001-of-00007.bin:  77%|███████▋  | 1.41G/1.83G [09:55<02:37, 2.69MB/s][A
+pytorch_model-00001-of-00007.bin:  77%|███████▋  | 1.42G/1.83G [09:59<02:34, 2.67MB/s][A
+pytorch_model-00001-of-00007.bin:  78%|███████▊  | 1.43G/1.83G [10:02<02:26, 2.73MB/s][A
+pytorch_model-00001-of-00007.bin:  79%|███████▊  | 1.44G/1.83G [10:06<02:19, 2.80MB/s][A
+pytorch_model-00001-of-00007.bin:  79%|███████▉  | 1.45G/1.83G [10:10<02:20, 2.72MB/s][A
+pytorch_model-00001-of-00007.bin:  80%|███████▉  | 1.46G/1.83G [10:13<02:11, 2.82MB/s][A
+pytorch_model-00001-of-00007.bin:  80%|████████  | 1.47G/1.83G [10:18<02:11, 2.73MB/s][A
+pytorch_model-00001-of-00007.bin:  81%|████████  | 1.48G/1.83G [10:21<02:05, 2.78MB/s][A
+pytorch_model-00001-of-00007.bin:  81%|████████▏ | 1.49G/1.83G [10:26<02:10, 2.61MB/s][A
+pytorch_model-00001-of-00007.bin:  82%|████████▏ | 1.50G/1.83G [10:29<02:02, 2.68MB/s][A
+pytorch_model-00001-of-00007.bin:  83%|████████▎ | 1.51G/1.83G [10:33<01:57, 2.69MB/s][A
+pytorch_model-00001-of-00007.bin:  83%|████████▎ | 1.52G/1.83G [10:36<01:46, 2.90MB/s][A
+pytorch_model-00001-of-00007.bin:  84%|████████▍ | 1.53G/1.83G [10:40<01:44, 2.85MB/s][A
+pytorch_model-00001-of-00007.bin:  84%|████████▍ | 1.54G/1.83G [10:43<01:35, 3.00MB/s][A
+pytorch_model-00001-of-00007.bin:  85%|████████▍ | 1.55G/1.83G [10:47<01:31, 3.03MB/s][A
+pytorch_model-00001-of-00007.bin:  85%|████████▌ | 1.56G/1.83G [10:50<01:26, 3.05MB/s][A
+pytorch_model-00001-of-00007.bin:  86%|████████▌ | 1.57G/1.83G [10:54<01:29, 2.84MB/s][A
+pytorch_model-00001-of-00007.bin:  87%|████████▋ | 1.58G/1.83G [10:58<01:26, 2.83MB/s][A
+pytorch_model-00001-of-00007.bin:  87%|████████▋ | 1.59G/1.83G [11:02<01:26, 2.72MB/s][A
+pytorch_model-00001-of-00007.bin:  88%|████████▊ | 1.60G/1.83G [11:06<01:20, 2.77MB/s][A
+pytorch_model-00001-of-00007.bin:  88%|████████▊ | 1.61G/1.83G [11:10<01:19, 2.69MB/s][A
+pytorch_model-00001-of-00007.bin:  89%|████████▉ | 1.63G/1.83G [11:14<01:15, 2.70MB/s][A
+pytorch_model-00001-of-00007.bin:  89%|████████▉ | 1.64G/1.83G [11:18<01:12, 2.67MB/s][A
+pytorch_model-00001-of-00007.bin:  90%|█████████ | 1.65G/1.83G [11:21<01:06, 2.72MB/s][A
+pytorch_model-00001-of-00007.bin:  91%|█████████ | 1.66G/1.83G [11:25<01:01, 2.79MB/s][A
+pytorch_model-00001-of-00007.bin:  91%|█████████ | 1.67G/1.83G [11:29<00:56, 2.84MB/s][A
+pytorch_model-00001-of-00007.bin:  92%|█████████▏| 1.68G/1.83G [11:33<00:53, 2.78MB/s][A
+pytorch_model-00001-of-00007.bin:  92%|█████████▏| 1.69G/1.83G [11:36<00:48, 2.87MB/s][A
+pytorch_model-00001-of-00007.bin:  93%|█████████▎| 1.70G/1.83G [11:40<00:44, 2.87MB/s][A
+pytorch_model-00001-of-00007.bin:  94%|█████████▎| 1.71G/1.83G [11:43<00:41, 2.86MB/s][A
+pytorch_model-00001-of-00007.bin:  94%|█████████▍| 1.72G/1.83G [11:47<00:38, 2.83MB/s][A
+pytorch_model-00001-of-00007.bin:  95%|█████████▍| 1.73G/1.83G [11:51<00:34, 2.85MB/s][A
+pytorch_model-00001-of-00007.bin:  95%|█████████▌| 1.74G/1.83G [11:56<00:34, 2.55MB/s][A
+pytorch_model-00001-of-00007.bin:  96%|█████████▌| 1.75G/1.83G [12:00<00:29, 2.60MB/s][A
+pytorch_model-00001-of-00007.bin:  96%|█████████▋| 1.76G/1.83G [12:04<00:25, 2.60MB/s][A
+pytorch_model-00001-of-00007.bin:  97%|█████████▋| 1.77G/1.83G [12:08<00:21, 2.54MB/s][A
+pytorch_model-00001-of-00007.bin:  98%|█████████▊| 1.78G/1.83G [12:13<00:19, 2.35MB/s][A
+pytorch_model-00001-of-00007.bin:  98%|█████████▊| 1.79G/1.83G [12:18<00:14, 2.35MB/s][A
+pytorch_model-00001-of-00007.bin:  99%|█████████▊| 1.80G/1.83G [12:21<00:09, 2.49MB/s][A
+pytorch_model-00001-of-00007.bin:  99%|█████████▉| 1.81G/1.83G [12:25<00:05, 2.51MB/s][A
+pytorch_model-00001-of-00007.bin: 100%|█████████▉| 1.82G/1.83G [12:29<00:01, 2.59MB/s][A
+pytorch_model-00001-of-00007.bin: 100%|██████████| 1.83G/1.83G [12:30<00:00, 2.58MB/s][Apytorch_model-00001-of-00007.bin: 100%|██████████| 1.83G/1.83G [12:31<00:00, 2.43MB/s]
+Downloading shards:  14%|█▍        | 1/7 [12:31<1:15:11, 751.90s/it]
+pytorch_model-00002-of-00007.bin:   0%|          | 0.00/1.97G [00:00<?, ?B/s][A
+pytorch_model-00002-of-00007.bin:   1%|          | 10.5M/1.97G [00:04<13:15, 2.46MB/s][A
+pytorch_model-00002-of-00007.bin:   1%|          | 21.0M/1.97G [00:11<17:44, 1.83MB/s][A
+pytorch_model-00002-of-00007.bin:   2%|▏         | 31.5M/1.97G [00:14<13:51, 2.33MB/s][A
+pytorch_model-00002-of-00007.bin:   2%|▏         | 41.9M/1.97G [00:17<12:31, 2.56MB/s][A
+pytorch_model-00002-of-00007.bin:   3%|▎         | 52.4M/1.97G [00:21<12:33, 2.54MB/s][A
+pytorch_model-00002-of-00007.bin:   3%|▎         | 62.9M/1.97G [00:25<11:50, 2.68MB/s][A
+pytorch_model-00002-of-00007.bin:   4%|▎         | 73.4M/1.97G [00:28<11:19, 2.79MB/s][A
+pytorch_model-00002-of-00007.bin:   4%|▍         | 83.9M/1.97G [00:31<10:47, 2.91MB/s][A
+pytorch_model-00002-of-00007.bin:   5%|▍         | 94.4M/1.97G [00:35<10:25, 2.99MB/s][A
+pytorch_model-00002-of-00007.bin:   5%|▌         | 105M/1.97G [00:39<10:52, 2.86MB/s] [A
+pytorch_model-00002-of-00007.bin:   6%|▌         | 115M/1.97G [00:42<10:50, 2.85MB/s][A
+pytorch_model-00002-of-00007.bin:   6%|▋         | 126M/1.97G [00:46<10:59, 2.79MB/s][A
+pytorch_model-00002-of-00007.bin:   7%|▋         | 136M/1.97G [00:50<10:30, 2.91MB/s][A
+pytorch_model-00002-of-00007.bin:   7%|▋         | 147M/1.97G [00:53<10:20, 2.94MB/s][A
+pytorch_model-00002-of-00007.bin:   8%|▊         | 157M/1.97G [00:57<10:11, 2.96MB/s][A
+pytorch_model-00002-of-00007.bin:   9%|▊         | 168M/1.97G [01:00<10:11, 2.94MB/s][A
+pytorch_model-00002-of-00007.bin:   9%|▉         | 178M/1.97G [01:04<10:25, 2.86MB/s][A
+pytorch_model-00002-of-00007.bin:  10%|▉         | 189M/1.97G [01:08<10:27, 2.84MB/s][A
+pytorch_model-00002-of-00007.bin:  10%|█         | 199M/1.97G [01:12<10:45, 2.74MB/s][A
+pytorch_model-00002-of-00007.bin:  11%|█         | 210M/1.97G [01:16<10:28, 2.80MB/s][A
+pytorch_model-00002-of-00007.bin:  11%|█         | 220M/1.97G [01:20<10:48, 2.70MB/s][A
+pytorch_model-00002-of-00007.bin:  12%|█▏        | 231M/1.97G [01:24<11:02, 2.62MB/s][A
+pytorch_model-00002-of-00007.bin:  12%|█▏        | 241M/1.97G [01:28<10:35, 2.72MB/s][A
+pytorch_model-00002-of-00007.bin:  13%|█▎        | 252M/1.97G [01:31<10:11, 2.81MB/s][A
+pytorch_model-00002-of-00007.bin:  13%|█▎        | 262M/1.97G [01:35<10:17, 2.76MB/s][A
+pytorch_model-00002-of-00007.bin:  14%|█▍        | 273M/1.97G [01:39<10:28, 2.70MB/s][A
+pytorch_model-00002-of-00007.bin:  14%|█▍        | 283M/1.97G [01:43<10:30, 2.67MB/s][A
+pytorch_model-00002-of-00007.bin:  15%|█▍        | 294M/1.97G [01:47<10:23, 2.68MB/s][A
+pytorch_model-00002-of-00007.bin:  15%|█▌        | 304M/1.97G [01:50<09:49, 2.82MB/s][A
+pytorch_model-00002-of-00007.bin:  16%|█▌        | 315M/1.97G [01:54<09:57, 2.77MB/s][A
+pytorch_model-00002-of-00007.bin:  17%|█▋        | 325M/1.97G [01:58<09:51, 2.78MB/s][A
+pytorch_model-00002-of-00007.bin:  17%|█▋        | 336M/1.97G [02:01<09:35, 2.84MB/s][A
+pytorch_model-00002-of-00007.bin:  18%|█▊        | 346M/1.97G [02:06<10:26, 2.59MB/s][A
+pytorch_model-00002-of-00007.bin:  18%|█▊        | 357M/1.97G [02:10<10:19, 2.60MB/s][A
+pytorch_model-00002-of-00007.bin:  19%|█▊        | 367M/1.97G [02:15<11:02, 2.42MB/s][A
+pytorch_model-00002-of-00007.bin:  19%|█▉        | 377M/1.97G [02:19<10:33, 2.51MB/s][A
+pytorch_model-00002-of-00007.bin:  20%|█▉        | 388M/1.97G [02:23<10:26, 2.52MB/s][A
+pytorch_model-00002-of-00007.bin:  20%|██        | 398M/1.97G [02:28<10:34, 2.47MB/s][A
+pytorch_model-00002-of-00007.bin:  21%|██        | 409M/1.97G [02:32<10:16, 2.53MB/s][A
+pytorch_model-00002-of-00007.bin:  21%|██▏       | 419M/1.97G [02:35<09:51, 2.62MB/s][A
+pytorch_model-00002-of-00007.bin:  22%|██▏       | 430M/1.97G [02:40<10:00, 2.56MB/s][A
+pytorch_model-00002-of-00007.bin:  22%|██▏       | 440M/1.97G [02:43<09:33, 2.67MB/s][A
+pytorch_model-00002-of-00007.bin:  23%|██▎       | 451M/1.97G [02:47<09:40, 2.61MB/s][A
+pytorch_model-00002-of-00007.bin:  23%|██▎       | 461M/1.97G [02:51<09:17, 2.70MB/s][A
+pytorch_model-00002-of-00007.bin:  24%|██▍       | 472M/1.97G [02:56<09:46, 2.55MB/s][A
+pytorch_model-00002-of-00007.bin:  25%|██▍       | 482M/1.97G [03:02<11:02, 2.24MB/s][A
+pytorch_model-00002-of-00007.bin:  25%|██▌       | 493M/1.97G [03:05<10:02, 2.45MB/s][A
+pytorch_model-00002-of-00007.bin:  26%|██▌       | 503M/1.97G [03:09<09:59, 2.44MB/s][A
+pytorch_model-00002-of-00007.bin:  26%|██▌       | 514M/1.97G [03:13<09:14, 2.62MB/s][A
+pytorch_model-00002-of-00007.bin:  27%|██▋       | 524M/1.97G [03:16<08:50, 2.72MB/s][A
+pytorch_model-00002-of-00007.bin:  27%|██▋       | 535M/1.97G [03:20<08:47, 2.72MB/s][A
+pytorch_model-00002-of-00007.bin:  28%|██▊       | 545M/1.97G [03:24<08:42, 2.72MB/s][A
+pytorch_model-00002-of-00007.bin:  28%|██▊       | 556M/1.97G [03:27<08:21, 2.82MB/s][A
+pytorch_model-00002-of-00007.bin:  29%|██▉       | 566M/1.97G [03:30<08:01, 2.91MB/s][A
+pytorch_model-00002-of-00007.bin:  29%|██▉       | 577M/1.97G [03:35<08:15, 2.81MB/s][A
+pytorch_model-00002-of-00007.bin:  30%|██▉       | 587M/1.97G [03:39<08:30, 2.70MB/s][A
+pytorch_model-00002-of-00007.bin:  30%|███       | 598M/1.97G [03:43<08:31, 2.68MB/s][A
+pytorch_model-00002-of-00007.bin:  31%|███       | 608M/1.97G [03:47<08:43, 2.60MB/s][A
+pytorch_model-00002-of-00007.bin:  31%|███▏      | 619M/1.97G [03:52<09:00, 2.50MB/s][A
+pytorch_model-00002-of-00007.bin:  32%|███▏      | 629M/1.97G [03:55<08:42, 2.56MB/s][A
+pytorch_model-00002-of-00007.bin:  32%|███▏      | 640M/1.97G [04:00<08:36, 2.57MB/s][A
+pytorch_model-00002-of-00007.bin:  33%|███▎      | 650M/1.97G [04:03<08:13, 2.67MB/s][A
+pytorch_model-00002-of-00007.bin:  34%|███▎      | 661M/1.97G [04:07<08:05, 2.69MB/s][A
+pytorch_model-00002-of-00007.bin:  34%|███▍      | 671M/1.97G [04:10<07:48, 2.77MB/s][A
+pytorch_model-00002-of-00007.bin:  35%|███▍      | 682M/1.97G [04:14<07:45, 2.76MB/s][A
+pytorch_model-00002-of-00007.bin:  35%|███▌      | 692M/1.97G [04:18<07:47, 2.73MB/s][A
+pytorch_model-00002-of-00007.bin:  36%|███▌      | 703M/1.97G [04:23<08:00, 2.63MB/s][A
+pytorch_model-00002-of-00007.bin:  36%|███▌      | 713M/1.97G [04:27<07:58, 2.62MB/s][A
+pytorch_model-00002-of-00007.bin:  37%|███▋      | 724M/1.97G [04:31<08:08, 2.55MB/s][A
+pytorch_model-00002-of-00007.bin:  37%|███▋      | 734M/1.97G [04:35<08:00, 2.57MB/s][A
+pytorch_model-00002-of-00007.bin:  38%|███▊      | 744M/1.97G [04:39<07:48, 2.61MB/s][A
+pytorch_model-00002-of-00007.bin:  38%|███▊      | 755M/1.97G [04:42<07:32, 2.68MB/s][A
+pytorch_model-00002-of-00007.bin:  39%|███▉      | 765M/1.97G [04:47<07:51, 2.55MB/s][A
+pytorch_model-00002-of-00007.bin:  39%|███▉      | 776M/1.97G [04:51<07:36, 2.61MB/s][A
+pytorch_model-00002-of-00007.bin:  40%|███▉      | 786M/1.97G [04:55<07:35, 2.60MB/s][A
+pytorch_model-00002-of-00007.bin:  40%|████      | 797M/1.97G [04:59<07:36, 2.57MB/s][A
+pytorch_model-00002-of-00007.bin:  41%|████      | 807M/1.97G [05:03<07:27, 2.59MB/s][A
+pytorch_model-00002-of-00007.bin:  42%|████▏     | 818M/1.97G [05:09<08:17, 2.31MB/s][A
+pytorch_model-00002-of-00007.bin:  42%|████▏     | 828M/1.97G [05:13<07:53, 2.41MB/s][A
+pytorch_model-00002-of-00007.bin:  43%|████▎     | 839M/1.97G [05:17<08:03, 2.34MB/s][A
+pytorch_model-00002-of-00007.bin:  43%|████▎     | 849M/1.97G [05:22<07:48, 2.39MB/s][A
+pytorch_model-00002-of-00007.bin:  44%|████▎     | 860M/1.97G [05:25<07:16, 2.54MB/s][A
+pytorch_model-00002-of-00007.bin:  44%|████▍     | 870M/1.97G [05:29<07:16, 2.51MB/s][A
+pytorch_model-00002-of-00007.bin:  45%|████▍     | 881M/1.97G [05:33<06:49, 2.66MB/s][A
+pytorch_model-00002-of-00007.bin:  45%|████▌     | 891M/1.97G [05:36<06:32, 2.74MB/s][A
+pytorch_model-00002-of-00007.bin:  46%|████▌     | 902M/1.97G [05:40<06:28, 2.74MB/s][A
+pytorch_model-00002-of-00007.bin:  46%|████▋     | 912M/1.97G [05:44<06:32, 2.69MB/s][A
+pytorch_model-00002-of-00007.bin:  47%|████▋     | 923M/1.97G [05:48<06:25, 2.71MB/s][A
+pytorch_model-00002-of-00007.bin:  47%|████▋     | 933M/1.97G [05:52<06:13, 2.77MB/s][A
+pytorch_model-00002-of-00007.bin:  48%|████▊     | 944M/1.97G [05:56<06:34, 2.60MB/s][A
+pytorch_model-00002-of-00007.bin:  48%|████▊     | 954M/1.97G [06:01<06:54, 2.44MB/s][A
+pytorch_model-00002-of-00007.bin:  49%|████▉     | 965M/1.97G [06:06<07:09, 2.34MB/s][A
+pytorch_model-00002-of-00007.bin:  50%|████▉     | 975M/1.97G [06:11<07:03, 2.35MB/s][A
+pytorch_model-00002-of-00007.bin:  50%|█████     | 986M/1.97G [06:15<06:56, 2.36MB/s][A
+pytorch_model-00002-of-00007.bin:  51%|█████     | 996M/1.97G [06:20<06:57, 2.33MB/s][A
+pytorch_model-00002-of-00007.bin:  51%|█████     | 1.01G/1.97G [06:26<07:43, 2.08MB/s][A
+pytorch_model-00002-of-00007.bin:  52%|█████▏    | 1.02G/1.97G [06:32<08:18, 1.91MB/s][A
+pytorch_model-00002-of-00007.bin:  52%|█████▏    | 1.03G/1.97G [06:38<08:15, 1.90MB/s][A
+pytorch_model-00002-of-00007.bin:  53%|█████▎    | 1.04G/1.97G [06:41<07:14, 2.14MB/s][A
+pytorch_model-00002-of-00007.bin:  53%|█████▎    | 1.05G/1.97G [06:45<06:43, 2.28MB/s][A
+pytorch_model-00002-of-00007.bin:  54%|█████▍    | 1.06G/1.97G [06:49<06:13, 2.43MB/s][A
+pytorch_model-00002-of-00007.bin:  54%|█████▍    | 1.07G/1.97G [06:54<06:22, 2.35MB/s][A
+pytorch_model-00002-of-00007.bin:  55%|█████▍    | 1.08G/1.97G [06:58<06:06, 2.42MB/s][A
+pytorch_model-00002-of-00007.bin:  55%|█████▌    | 1.09G/1.97G [07:01<05:41, 2.57MB/s][A
+pytorch_model-00002-of-00007.bin:  56%|█████▌    | 1.10G/1.97G [07:05<05:28, 2.64MB/s][A
+pytorch_model-00002-of-00007.bin:  56%|█████▋    | 1.11G/1.97G [07:09<05:28, 2.61MB/s][A
+pytorch_model-00002-of-00007.bin:  57%|█████▋    | 1.12G/1.97G [07:13<05:11, 2.72MB/s][A
+pytorch_model-00002-of-00007.bin:  58%|█████▊    | 1.13G/1.97G [07:17<05:07, 2.72MB/s][A
+pytorch_model-00002-of-00007.bin:  58%|█████▊    | 1.14G/1.97G [07:21<05:16, 2.61MB/s][A
+pytorch_model-00002-of-00007.bin:  59%|█████▊    | 1.15G/1.97G [07:25<05:16, 2.58MB/s][A
+pytorch_model-00002-of-00007.bin:  59%|█████▉    | 1.16G/1.97G [07:29<05:11, 2.59MB/s][A
+pytorch_model-00002-of-00007.bin:  60%|█████▉    | 1.17G/1.97G [07:32<04:48, 2.75MB/s][A
+pytorch_model-00002-of-00007.bin:  60%|██████    | 1.18G/1.97G [07:36<04:42, 2.77MB/s][A
+pytorch_model-00002-of-00007.bin:  61%|██████    | 1.20G/1.97G [07:40<04:46, 2.70MB/s][A
+pytorch_model-00002-of-00007.bin:  61%|██████▏   | 1.21G/1.97G [07:44<04:39, 2.73MB/s][A
+pytorch_model-00002-of-00007.bin:  62%|██████▏   | 1.22G/1.97G [07:48<04:31, 2.77MB/s][A
+pytorch_model-00002-of-00007.bin:  62%|██████▏   | 1.23G/1.97G [07:51<04:28, 2.77MB/s][A
+pytorch_model-00002-of-00007.bin:  63%|██████▎   | 1.24G/1.97G [07:55<04:26, 2.74MB/s][A
+pytorch_model-00002-of-00007.bin:  63%|██████▎   | 1.25G/1.97G [07:59<04:27, 2.70MB/s][A
+pytorch_model-00002-of-00007.bin:  64%|██████▍   | 1.26G/1.97G [08:03<04:16, 2.76MB/s][A
+pytorch_model-00002-of-00007.bin:  64%|██████▍   | 1.27G/1.97G [08:07<04:15, 2.73MB/s][A
+pytorch_model-00002-of-00007.bin:  65%|██████▍   | 1.28G/1.97G [08:11<04:22, 2.63MB/s][A
+pytorch_model-00002-of-00007.bin:  66%|██████▌   | 1.29G/1.97G [08:15<04:14, 2.67MB/s][A
+pytorch_model-00002-of-00007.bin:  66%|██████▌   | 1.30G/1.97G [08:19<04:18, 2.58MB/s][A
+pytorch_model-00002-of-00007.bin:  67%|██████▋   | 1.31G/1.97G [08:24<04:32, 2.42MB/s][A
+pytorch_model-00002-of-00007.bin:  67%|██████▋   | 1.32G/1.97G [08:29<04:28, 2.41MB/s][A
+pytorch_model-00002-of-00007.bin:  68%|██████▊   | 1.33G/1.97G [08:33<04:14, 2.51MB/s][A
+pytorch_model-00002-of-00007.bin:  68%|██████▊   | 1.34G/1.97G [08:37<04:07, 2.53MB/s][A
+pytorch_model-00002-of-00007.bin:  69%|██████▊   | 1.35G/1.97G [08:41<04:03, 2.53MB/s][A
+pytorch_model-00002-of-00007.bin:  69%|██████▉   | 1.36G/1.97G [08:45<04:01, 2.51MB/s][A
+pytorch_model-00002-of-00007.bin:  70%|██████▉   | 1.37G/1.97G [08:49<03:51, 2.57MB/s][A
+pytorch_model-00002-of-00007.bin:  70%|███████   | 1.38G/1.97G [08:53<03:46, 2.57MB/s][A
+pytorch_model-00002-of-00007.bin:  71%|███████   | 1.39G/1.97G [08:58<03:59, 2.39MB/s][A
+pytorch_model-00002-of-00007.bin:  71%|███████▏  | 1.41G/1.97G [09:02<03:47, 2.47MB/s][A
+pytorch_model-00002-of-00007.bin:  72%|███████▏  | 1.42G/1.97G [09:06<03:37, 2.54MB/s][A
+pytorch_model-00002-of-00007.bin:  72%|███████▏  | 1.43G/1.97G [09:10<03:27, 2.61MB/s][A
+pytorch_model-00002-of-00007.bin:  73%|███████▎  | 1.44G/1.97G [09:13<03:20, 2.66MB/s][A
+pytorch_model-00002-of-00007.bin:  74%|███████▎  | 1.45G/1.97G [09:17<03:15, 2.66MB/s][A
+pytorch_model-00002-of-00007.bin:  74%|███████▍  | 1.46G/1.97G [09:20<02:59, 2.84MB/s][A
+pytorch_model-00002-of-00007.bin:  75%|███████▍  | 1.47G/1.97G [09:24<03:00, 2.78MB/s][A
+pytorch_model-00002-of-00007.bin:  75%|███████▌  | 1.48G/1.97G [09:28<02:59, 2.73MB/s][A
+pytorch_model-00002-of-00007.bin:  76%|███████▌  | 1.49G/1.97G [09:33<03:01, 2.64MB/s][A
+pytorch_model-00002-of-00007.bin:  76%|███████▌  | 1.50G/1.97G [09:37<02:59, 2.61MB/s][A
+pytorch_model-00002-of-00007.bin:  77%|███████▋  | 1.51G/1.97G [09:40<02:49, 2.70MB/s][A
+pytorch_model-00002-of-00007.bin:  77%|███████▋  | 1.52G/1.97G [09:44<02:41, 2.77MB/s][A
+pytorch_model-00002-of-00007.bin:  78%|███████▊  | 1.53G/1.97G [09:48<02:44, 2.66MB/s][A
+pytorch_model-00002-of-00007.bin:  78%|███████▊  | 1.54G/1.97G [09:51<02:29, 2.86MB/s][A
+pytorch_model-00002-of-00007.bin:  79%|███████▉  | 1.55G/1.97G [09:55<02:23, 2.91MB/s][A
+pytorch_model-00002-of-00007.bin:  79%|███████▉  | 1.56G/1.97G [09:58<02:17, 2.95MB/s][A
+pytorch_model-00002-of-00007.bin:  80%|███████▉  | 1.57G/1.97G [10:02<02:14, 2.93MB/s][A
+pytorch_model-00002-of-00007.bin:  80%|████████  | 1.58G/1.97G [10:06<02:17, 2.80MB/s][A
+pytorch_model-00002-of-00007.bin:  81%|████████  | 1.59G/1.97G [10:10<02:22, 2.62MB/s][A
+pytorch_model-00002-of-00007.bin:  82%|████████▏ | 1.60G/1.97G [10:14<02:12, 2.76MB/s][A
+pytorch_model-00002-of-00007.bin:  82%|████████▏ | 1.61G/1.97G [10:18<02:12, 2.66MB/s][A
+pytorch_model-00002-of-00007.bin:  83%|████████▎ | 1.63G/1.97G [10:23<02:16, 2.51MB/s][A
+pytorch_model-00002-of-00007.bin:  83%|████████▎ | 1.64G/1.97G [10:27<02:14, 2.47MB/s][A
+pytorch_model-00002-of-00007.bin:  84%|████████▎ | 1.65G/1.97G [10:31<02:04, 2.59MB/s][A
+pytorch_model-00002-of-00007.bin:  84%|████████▍ | 1.66G/1.97G [10:35<01:59, 2.60MB/s][A
+pytorch_model-00002-of-00007.bin:  85%|████████▍ | 1.67G/1.97G [10:39<02:00, 2.50MB/s][A
+pytorch_model-00002-of-00007.bin:  85%|████████▌ | 1.68G/1.97G [10:43<01:47, 2.70MB/s][A
+pytorch_model-00002-of-00007.bin:  86%|████████▌ | 1.69G/1.97G [10:47<01:49, 2.55MB/s][A
+pytorch_model-00002-of-00007.bin:  86%|████████▋ | 1.70G/1.97G [10:51<01:44, 2.59MB/s][A
+pytorch_model-00002-of-00007.bin:  87%|████████▋ | 1.71G/1.97G [10:57<01:52, 2.30MB/s][A
+pytorch_model-00002-of-00007.bin:  87%|████████▋ | 1.72G/1.97G [11:01<01:45, 2.36MB/s][A
+pytorch_model-00002-of-00007.bin:  88%|████████▊ | 1.73G/1.97G [11:06<01:45, 2.26MB/s][A
+pytorch_model-00002-of-00007.bin:  88%|████████▊ | 1.74G/1.97G [11:12<01:47, 2.12MB/s][A
+pytorch_model-00002-of-00007.bin:  89%|████████▉ | 1.75G/1.97G [11:16<01:37, 2.22MB/s][A
+pytorch_model-00002-of-00007.bin:  89%|████████▉ | 1.76G/1.97G [11:20<01:29, 2.32MB/s][A
+pytorch_model-00002-of-00007.bin:  90%|█████████ | 1.77G/1.97G [11:24<01:20, 2.43MB/s][A
+pytorch_model-00002-of-00007.bin:  91%|█████████ | 1.78G/1.97G [11:30<01:23, 2.21MB/s][A
+pytorch_model-00002-of-00007.bin:  91%|█████████ | 1.79G/1.97G [11:34<01:18, 2.22MB/s][A
+pytorch_model-00002-of-00007.bin:  92%|█████████▏| 1.80G/1.97G [11:40<01:18, 2.10MB/s][A
+pytorch_model-00002-of-00007.bin:  92%|█████████▏| 1.81G/1.97G [11:48<01:25, 1.81MB/s][A
+pytorch_model-00002-of-00007.bin:  93%|█████████▎| 1.82G/1.97G [11:59<01:43, 1.38MB/s][A
+pytorch_model-00002-of-00007.bin:  93%|█████████▎| 1.84G/1.97G [12:10<01:48, 1.23MB/s][A
+pytorch_model-00002-of-00007.bin:  94%|█████████▍| 1.85G/1.97G [12:25<02:02, 1.00MB/s][A
+pytorch_model-00002-of-00007.bin:  94%|█████████▍| 1.86G/1.97G [12:33<01:44, 1.08MB/s][A
+pytorch_model-00002-of-00007.bin:  95%|█████████▍| 1.87G/1.97G [12:37<01:18, 1.29MB/s][A
+pytorch_model-00002-of-00007.bin:  95%|█████████▌| 1.88G/1.97G [12:43<01:04, 1.42MB/s][A
+pytorch_model-00002-of-00007.bin:  96%|█████████▌| 1.89G/1.97G [12:48<00:51, 1.57MB/s][A
+pytorch_model-00002-of-00007.bin:  96%|█████████▋| 1.90G/1.97G [12:52<00:38, 1.81MB/s][A
+pytorch_model-00002-of-00007.bin:  97%|█████████▋| 1.91G/1.97G [12:56<00:30, 1.98MB/s][A
+pytorch_model-00002-of-00007.bin:  97%|█████████▋| 1.92G/1.97G [12:59<00:22, 2.22MB/s][A
+pytorch_model-00002-of-00007.bin:  98%|█████████▊| 1.93G/1.97G [13:05<00:18, 2.08MB/s][A
+pytorch_model-00002-of-00007.bin:  99%|█████████▊| 1.94G/1.97G [13:12<00:14, 1.92MB/s][A
+pytorch_model-00002-of-00007.bin:  99%|█████████▉| 1.95G/1.97G [13:15<00:08, 2.14MB/s][A
+pytorch_model-00002-of-00007.bin: 100%|█████████▉| 1.96G/1.97G [13:18<00:03, 2.37MB/s][A
+pytorch_model-00002-of-00007.bin: 100%|██████████| 1.97G/1.97G [13:21<00:00, 2.51MB/s][Apytorch_model-00002-of-00007.bin: 100%|██████████| 1.97G/1.97G [13:21<00:00, 2.46MB/s]
+Downloading shards:  29%|██▊       | 2/7 [25:54<1:05:07, 781.56s/it]
+pytorch_model-00003-of-00007.bin:   0%|          | 0.00/1.93G [00:00<?, ?B/s][A
+pytorch_model-00003-of-00007.bin:   1%|          | 10.5M/1.93G [00:03<10:44, 2.97MB/s][A
+pytorch_model-00003-of-00007.bin:   1%|          | 21.0M/1.93G [00:07<10:55, 2.91MB/s][A
+pytorch_model-00003-of-00007.bin:   2%|▏         | 31.5M/1.93G [00:11<11:24, 2.77MB/s][A
+pytorch_model-00003-of-00007.bin:   2%|▏         | 41.9M/1.93G [00:15<12:27, 2.52MB/s][A
+pytorch_model-00003-of-00007.bin:   3%|▎         | 52.4M/1.93G [00:20<12:36, 2.48MB/s][A
+pytorch_model-00003-of-00007.bin:   3%|▎         | 62.9M/1.93G [00:24<12:45, 2.44MB/s][A
+pytorch_model-00003-of-00007.bin:   4%|▍         | 73.4M/1.93G [00:28<12:23, 2.49MB/s][A
+pytorch_model-00003-of-00007.bin:   4%|▍         | 83.9M/1.93G [00:33<12:26, 2.47MB/s][A
+pytorch_model-00003-of-00007.bin:   5%|▍         | 94.4M/1.93G [00:37<12:23, 2.47MB/s][A
+pytorch_model-00003-of-00007.bin:   5%|▌         | 105M/1.93G [00:42<13:31, 2.25MB/s] [A
+pytorch_model-00003-of-00007.bin:   6%|▌         | 115M/1.93G [00:47<13:15, 2.28MB/s][A
+pytorch_model-00003-of-00007.bin:   7%|▋         | 126M/1.93G [00:51<12:33, 2.39MB/s][A
+pytorch_model-00003-of-00007.bin:   7%|▋         | 136M/1.93G [00:56<13:04, 2.28MB/s][A
+pytorch_model-00003-of-00007.bin:   8%|▊         | 147M/1.93G [01:01<13:08, 2.26MB/s][A
+pytorch_model-00003-of-00007.bin:   8%|▊         | 157M/1.93G [01:06<13:44, 2.15MB/s][A
+pytorch_model-00003-of-00007.bin:   9%|▊         | 168M/1.93G [01:10<12:29, 2.35MB/s][A
+pytorch_model-00003-of-00007.bin:   9%|▉         | 178M/1.93G [01:13<11:16, 2.59MB/s][A
+pytorch_model-00003-of-00007.bin:  10%|▉         | 189M/1.93G [01:17<11:10, 2.59MB/s][A
+pytorch_model-00003-of-00007.bin:  10%|█         | 199M/1.93G [01:20<10:17, 2.80MB/s][A
+pytorch_model-00003-of-00007.bin:  11%|█         | 210M/1.93G [01:23<10:07, 2.83MB/s][A
+pytorch_model-00003-of-00007.bin:  11%|█▏        | 220M/1.93G [01:27<09:53, 2.87MB/s][A
+pytorch_model-00003-of-00007.bin:  12%|█▏        | 231M/1.93G [01:31<09:55, 2.85MB/s][A
+pytorch_model-00003-of-00007.bin:  13%|█▎        | 241M/1.93G [01:34<09:43, 2.89MB/s][A
+pytorch_model-00003-of-00007.bin:  13%|█▎        | 252M/1.93G [01:38<09:39, 2.89MB/s][A
+pytorch_model-00003-of-00007.bin:  14%|█▎        | 262M/1.93G [01:41<09:23, 2.96MB/s][A
+pytorch_model-00003-of-00007.bin:  14%|█▍        | 273M/1.93G [01:45<09:55, 2.78MB/s][A
+pytorch_model-00003-of-00007.bin:  15%|█▍        | 283M/1.93G [01:50<10:09, 2.70MB/s][A
+pytorch_model-00003-of-00007.bin:  15%|█▌        | 294M/1.93G [01:53<09:40, 2.82MB/s][A
+pytorch_model-00003-of-00007.bin:  16%|█▌        | 304M/1.93G [01:57<09:48, 2.76MB/s][A
+pytorch_model-00003-of-00007.bin:  16%|█▋        | 315M/1.93G [02:00<09:28, 2.84MB/s][A
+pytorch_model-00003-of-00007.bin:  17%|█▋        | 325M/1.93G [02:04<09:10, 2.91MB/s][A
+pytorch_model-00003-of-00007.bin:  17%|█▋        | 336M/1.93G [02:10<10:54, 2.43MB/s][A
+pytorch_model-00003-of-00007.bin:  18%|█▊        | 346M/1.93G [02:13<10:10, 2.59MB/s][A
+pytorch_model-00003-of-00007.bin:  18%|█▊        | 357M/1.93G [02:18<10:30, 2.49MB/s][A
+pytorch_model-00003-of-00007.bin:  19%|█▉        | 367M/1.93G [02:22<10:20, 2.51MB/s][A
+pytorch_model-00003-of-00007.bin:  20%|█▉        | 377M/1.93G [02:26<10:07, 2.55MB/s][A
+pytorch_model-00003-of-00007.bin:  20%|██        | 388M/1.93G [02:29<09:40, 2.65MB/s][A
+pytorch_model-00003-of-00007.bin:  21%|██        | 398M/1.93G [02:33<09:26, 2.70MB/s][A
+pytorch_model-00003-of-00007.bin:  21%|██        | 409M/1.93G [02:37<09:17, 2.72MB/s][A
+pytorch_model-00003-of-00007.bin:  22%|██▏       | 419M/1.93G [02:40<09:05, 2.76MB/s][A
+pytorch_model-00003-of-00007.bin:  22%|██▏       | 430M/1.93G [02:44<08:42, 2.87MB/s][A
+pytorch_model-00003-of-00007.bin:  23%|██▎       | 440M/1.93G [02:47<08:39, 2.86MB/s][A
+pytorch_model-00003-of-00007.bin:  23%|██▎       | 451M/1.93G [02:51<08:38, 2.85MB/s][A
+pytorch_model-00003-of-00007.bin:  24%|██▍       | 461M/1.93G [02:55<08:28, 2.88MB/s][A
+pytorch_model-00003-of-00007.bin:  24%|██▍       | 472M/1.93G [02:58<08:23, 2.89MB/s][A
+pytorch_model-00003-of-00007.bin:  25%|██▌       | 482M/1.93G [03:01<07:57, 3.02MB/s][A
+pytorch_model-00003-of-00007.bin:  26%|██▌       | 493M/1.93G [03:05<07:44, 3.09MB/s][A
+pytorch_model-00003-of-00007.bin:  26%|██▌       | 503M/1.93G [03:08<07:31, 3.16MB/s][A
+pytorch_model-00003-of-00007.bin:  27%|██▋       | 514M/1.93G [03:11<07:35, 3.10MB/s][A
+pytorch_model-00003-of-00007.bin:  27%|██▋       | 524M/1.93G [03:16<08:41, 2.69MB/s][A
+pytorch_model-00003-of-00007.bin:  28%|██▊       | 535M/1.93G [03:20<08:18, 2.79MB/s][A
+pytorch_model-00003-of-00007.bin:  28%|██▊       | 545M/1.93G [03:24<08:42, 2.64MB/s][A
+pytorch_model-00003-of-00007.bin:  29%|██▉       | 556M/1.93G [03:30<09:36, 2.38MB/s][A
+pytorch_model-00003-of-00007.bin:  29%|██▉       | 566M/1.93G [03:35<09:56, 2.28MB/s][A
+pytorch_model-00003-of-00007.bin:  30%|██▉       | 577M/1.93G [03:39<09:46, 2.30MB/s][A
+pytorch_model-00003-of-00007.bin:  30%|███       | 587M/1.93G [03:43<09:09, 2.44MB/s][A
+pytorch_model-00003-of-00007.bin:  31%|███       | 598M/1.93G [03:47<08:47, 2.52MB/s][A
+pytorch_model-00003-of-00007.bin:  32%|███▏      | 608M/1.93G [03:51<08:37, 2.55MB/s][A
+pytorch_model-00003-of-00007.bin:  32%|███▏      | 619M/1.93G [03:56<08:58, 2.43MB/s][A
+pytorch_model-00003-of-00007.bin:  33%|███▎      | 629M/1.93G [04:00<09:03, 2.39MB/s][A
+pytorch_model-00003-of-00007.bin:  33%|███▎      | 640M/1.93G [04:06<09:41, 2.21MB/s][A
+pytorch_model-00003-of-00007.bin:  34%|███▎      | 650M/1.93G [04:09<08:59, 2.37MB/s][A
+pytorch_model-00003-of-00007.bin:  34%|███▍      | 661M/1.93G [04:13<08:43, 2.42MB/s][A
+pytorch_model-00003-of-00007.bin:  35%|███▍      | 671M/1.93G [04:18<08:36, 2.43MB/s][A
+pytorch_model-00003-of-00007.bin:  35%|███▌      | 682M/1.93G [04:22<08:22, 2.48MB/s][A
+pytorch_model-00003-of-00007.bin:  36%|███▌      | 692M/1.93G [04:26<08:20, 2.47MB/s][A
+pytorch_model-00003-of-00007.bin:  36%|███▋      | 703M/1.93G [04:31<08:25, 2.42MB/s][A
+pytorch_model-00003-of-00007.bin:  37%|███▋      | 713M/1.93G [04:35<08:13, 2.46MB/s][A
+pytorch_model-00003-of-00007.bin:  38%|███▊      | 724M/1.93G [04:39<08:11, 2.45MB/s][A
+pytorch_model-00003-of-00007.bin:  38%|███▊      | 734M/1.93G [04:42<07:39, 2.60MB/s][A
+pytorch_model-00003-of-00007.bin:  39%|███▊      | 744M/1.93G [04:46<07:21, 2.68MB/s][A
+pytorch_model-00003-of-00007.bin:  39%|███▉      | 755M/1.93G [04:50<07:13, 2.70MB/s][A
+pytorch_model-00003-of-00007.bin:  40%|███▉      | 765M/1.93G [04:54<07:01, 2.75MB/s][A
+pytorch_model-00003-of-00007.bin:  40%|████      | 776M/1.93G [04:58<07:05, 2.71MB/s][A
+pytorch_model-00003-of-00007.bin:  41%|████      | 786M/1.93G [05:01<06:57, 2.73MB/s][A
+pytorch_model-00003-of-00007.bin:  41%|████▏     | 797M/1.93G [05:05<06:57, 2.71MB/s][A
+pytorch_model-00003-of-00007.bin:  42%|████▏     | 807M/1.93G [05:09<06:44, 2.77MB/s][A
+pytorch_model-00003-of-00007.bin:  42%|████▏     | 818M/1.93G [05:13<06:50, 2.70MB/s][A
+pytorch_model-00003-of-00007.bin:  43%|████▎     | 828M/1.93G [05:17<06:51, 2.67MB/s][A
+pytorch_model-00003-of-00007.bin:  44%|████▎     | 839M/1.93G [05:21<06:43, 2.70MB/s][A
+pytorch_model-00003-of-00007.bin:  44%|████▍     | 849M/1.93G [05:25<07:02, 2.55MB/s][A
+pytorch_model-00003-of-00007.bin:  45%|████▍     | 860M/1.93G [05:29<06:51, 2.59MB/s][A
+pytorch_model-00003-of-00007.bin:  45%|████▌     | 870M/1.93G [05:33<06:34, 2.68MB/s][A
+pytorch_model-00003-of-00007.bin:  46%|████▌     | 881M/1.93G [05:37<06:42, 2.60MB/s][A
+pytorch_model-00003-of-00007.bin:  46%|████▌     | 891M/1.93G [05:42<07:13, 2.39MB/s][A
+pytorch_model-00003-of-00007.bin:  47%|████▋     | 902M/1.93G [05:48<07:51, 2.17MB/s][A
+pytorch_model-00003-of-00007.bin:  47%|████▋     | 912M/1.93G [05:52<07:21, 2.30MB/s][A
+pytorch_model-00003-of-00007.bin:  48%|████▊     | 923M/1.93G [05:56<06:42, 2.49MB/s][A
+pytorch_model-00003-of-00007.bin:  48%|████▊     | 933M/1.93G [05:59<06:24, 2.58MB/s][A
+pytorch_model-00003-of-00007.bin:  49%|████▉     | 944M/1.93G [06:03<06:18, 2.60MB/s][A
+pytorch_model-00003-of-00007.bin:  50%|████▉     | 954M/1.93G [06:08<06:25, 2.52MB/s][A
+pytorch_model-00003-of-00007.bin:  50%|█████     | 965M/1.93G [06:12<06:13, 2.58MB/s][A
+pytorch_model-00003-of-00007.bin:  51%|█████     | 975M/1.93G [06:15<06:01, 2.63MB/s][A
+pytorch_model-00003-of-00007.bin:  51%|█████     | 986M/1.93G [06:19<05:44, 2.73MB/s][A
+pytorch_model-00003-of-00007.bin:  52%|█████▏    | 996M/1.93G [06:23<05:44, 2.70MB/s][A
+pytorch_model-00003-of-00007.bin:  52%|█████▏    | 1.01G/1.93G [06:26<05:32, 2.77MB/s][A
+pytorch_model-00003-of-00007.bin:  53%|█████▎    | 1.02G/1.93G [06:31<05:36, 2.71MB/s][A
+pytorch_model-00003-of-00007.bin:  53%|█████▎    | 1.03G/1.93G [06:35<05:38, 2.66MB/s][A
+pytorch_model-00003-of-00007.bin:  54%|█████▍    | 1.04G/1.93G [06:38<05:23, 2.75MB/s][A
+pytorch_model-00003-of-00007.bin:  54%|█████▍    | 1.05G/1.93G [06:42<05:08, 2.85MB/s][A
+pytorch_model-00003-of-00007.bin:  55%|█████▍    | 1.06G/1.93G [06:45<05:09, 2.81MB/s][A
+pytorch_model-00003-of-00007.bin:  55%|█████▌    | 1.07G/1.93G [06:51<05:57, 2.40MB/s][A
+pytorch_model-00003-of-00007.bin:  56%|█████▌    | 1.08G/1.93G [06:57<06:28, 2.18MB/s][A
+pytorch_model-00003-of-00007.bin:  57%|█████▋    | 1.09G/1.93G [07:01<05:57, 2.34MB/s][A
+pytorch_model-00003-of-00007.bin:  57%|█████▋    | 1.10G/1.93G [07:05<05:46, 2.39MB/s][A
+pytorch_model-00003-of-00007.bin:  58%|█████▊    | 1.11G/1.93G [07:09<05:28, 2.49MB/s][A
+pytorch_model-00003-of-00007.bin:  58%|█████▊    | 1.12G/1.93G [07:13<05:15, 2.55MB/s][A
+pytorch_model-00003-of-00007.bin:  59%|█████▉    | 1.13G/1.93G [07:17<05:22, 2.47MB/s][A
+pytorch_model-00003-of-00007.bin:  59%|█████▉    | 1.14G/1.93G [07:21<05:02, 2.59MB/s][A
+pytorch_model-00003-of-00007.bin:  60%|█████▉    | 1.15G/1.93G [07:25<05:03, 2.55MB/s][A
+pytorch_model-00003-of-00007.bin:  60%|██████    | 1.16G/1.93G [07:29<04:46, 2.67MB/s][A
+pytorch_model-00003-of-00007.bin:  61%|██████    | 1.17G/1.93G [07:33<04:45, 2.64MB/s][A
+pytorch_model-00003-of-00007.bin:  61%|██████▏   | 1.18G/1.93G [07:37<04:45, 2.60MB/s][A
+pytorch_model-00003-of-00007.bin:  62%|██████▏   | 1.20G/1.93G [07:40<04:30, 2.71MB/s][A
+pytorch_model-00003-of-00007.bin:  63%|██████▎   | 1.21G/1.93G [07:44<04:26, 2.71MB/s][A
+pytorch_model-00003-of-00007.bin:  63%|██████▎   | 1.22G/1.93G [07:48<04:23, 2.69MB/s][A
+pytorch_model-00003-of-00007.bin:  64%|██████▎   | 1.23G/1.93G [07:52<04:26, 2.63MB/s][A
+pytorch_model-00003-of-00007.bin:  64%|██████▍   | 1.24G/1.93G [07:56<04:16, 2.69MB/s][A
+pytorch_model-00003-of-00007.bin:  65%|██████▍   | 1.25G/1.93G [07:59<04:03, 2.79MB/s][A
+pytorch_model-00003-of-00007.bin:  65%|██████▌   | 1.26G/1.93G [08:03<03:53, 2.87MB/s][A
+pytorch_model-00003-of-00007.bin:  66%|██████▌   | 1.27G/1.93G [08:07<03:51, 2.84MB/s][A
+pytorch_model-00003-of-00007.bin:  66%|██████▋   | 1.28G/1.93G [08:10<03:39, 2.96MB/s][A
+pytorch_model-00003-of-00007.bin:  67%|██████▋   | 1.29G/1.93G [08:13<03:29, 3.05MB/s][A
+pytorch_model-00003-of-00007.bin:  67%|██████▋   | 1.30G/1.93G [08:17<03:32, 2.95MB/s][A
+pytorch_model-00003-of-00007.bin:  68%|██████▊   | 1.31G/1.93G [08:20<03:29, 2.94MB/s][A
+pytorch_model-00003-of-00007.bin:  69%|██████▊   | 1.32G/1.93G [08:24<03:23, 2.97MB/s][A
+pytorch_model-00003-of-00007.bin:  69%|██████▉   | 1.33G/1.93G [08:28<03:32, 2.80MB/s][A
+pytorch_model-00003-of-00007.bin:  70%|██████▉   | 1.34G/1.93G [08:32<03:23, 2.88MB/s][A
+pytorch_model-00003-of-00007.bin:  70%|███████   | 1.35G/1.93G [08:36<03:31, 2.72MB/s][A
+pytorch_model-00003-of-00007.bin:  71%|███████   | 1.36G/1.93G [08:41<03:54, 2.40MB/s][A
+pytorch_model-00003-of-00007.bin:  71%|███████▏  | 1.37G/1.93G [08:46<03:52, 2.38MB/s][A
+pytorch_model-00003-of-00007.bin:  72%|███████▏  | 1.38G/1.93G [08:50<03:43, 2.44MB/s][A
+pytorch_model-00003-of-00007.bin:  72%|███████▏  | 1.39G/1.93G [08:53<03:25, 2.59MB/s][A
+pytorch_model-00003-of-00007.bin:  73%|███████▎  | 1.41G/1.93G [08:57<03:16, 2.66MB/s][A
+pytorch_model-00003-of-00007.bin:  73%|███████▎  | 1.42G/1.93G [09:02<03:28, 2.46MB/s][A
+pytorch_model-00003-of-00007.bin:  74%|███████▍  | 1.43G/1.93G [09:06<03:20, 2.50MB/s][A
+pytorch_model-00003-of-00007.bin:  75%|███████▍  | 1.44G/1.93G [09:11<03:19, 2.46MB/s][A
+pytorch_model-00003-of-00007.bin:  75%|███████▌  | 1.45G/1.93G [09:15<03:11, 2.51MB/s][A
+pytorch_model-00003-of-00007.bin:  76%|███████▌  | 1.46G/1.93G [09:19<03:05, 2.53MB/s][A
+pytorch_model-00003-of-00007.bin:  76%|███████▌  | 1.47G/1.93G [09:23<03:08, 2.43MB/s][A
+pytorch_model-00003-of-00007.bin:  77%|███████▋  | 1.48G/1.93G [09:27<02:52, 2.60MB/s][A
+pytorch_model-00003-of-00007.bin:  77%|███████▋  | 1.49G/1.93G [09:30<02:43, 2.67MB/s][A
+pytorch_model-00003-of-00007.bin:  78%|███████▊  | 1.50G/1.93G [09:34<02:32, 2.81MB/s][A
+pytorch_model-00003-of-00007.bin:  78%|███████▊  | 1.51G/1.93G [09:37<02:29, 2.79MB/s][A
+pytorch_model-00003-of-00007.bin:  79%|███████▉  | 1.52G/1.93G [09:41<02:25, 2.80MB/s][A
+pytorch_model-00003-of-00007.bin:  79%|███████▉  | 1.53G/1.93G [09:45<02:23, 2.77MB/s][A
+pytorch_model-00003-of-00007.bin:  80%|███████▉  | 1.54G/1.93G [09:48<02:14, 2.87MB/s][A
+pytorch_model-00003-of-00007.bin:  81%|████████  | 1.55G/1.93G [09:52<02:12, 2.83MB/s][A
+pytorch_model-00003-of-00007.bin:  81%|████████  | 1.56G/1.93G [09:56<02:14, 2.72MB/s][A
+pytorch_model-00003-of-00007.bin:  82%|████████▏ | 1.57G/1.93G [10:01<02:15, 2.61MB/s][A
+pytorch_model-00003-of-00007.bin:  82%|████████▏ | 1.58G/1.93G [10:06<02:26, 2.35MB/s][A
+pytorch_model-00003-of-00007.bin:  83%|████████▎ | 1.59G/1.93G [10:10<02:18, 2.41MB/s][A
+pytorch_model-00003-of-00007.bin:  83%|████████▎ | 1.60G/1.93G [10:15<02:15, 2.39MB/s][A
+pytorch_model-00003-of-00007.bin:  84%|████████▍ | 1.61G/1.93G [10:19<02:07, 2.44MB/s][A
+pytorch_model-00003-of-00007.bin:  84%|████████▍ | 1.63G/1.93G [10:23<01:58, 2.54MB/s][A
+pytorch_model-00003-of-00007.bin:  85%|████████▍ | 1.64G/1.93G [10:26<01:49, 2.67MB/s][A
+pytorch_model-00003-of-00007.bin:  85%|████████▌ | 1.65G/1.93G [10:31<01:49, 2.56MB/s][A
+pytorch_model-00003-of-00007.bin:  86%|████████▌ | 1.66G/1.93G [10:34<01:41, 2.66MB/s][A
+pytorch_model-00003-of-00007.bin:  87%|████████▋ | 1.67G/1.93G [10:39<01:45, 2.46MB/s][A
+pytorch_model-00003-of-00007.bin:  87%|████████▋ | 1.68G/1.93G [10:44<01:42, 2.43MB/s][A
+pytorch_model-00003-of-00007.bin:  88%|████████▊ | 1.69G/1.93G [10:48<01:35, 2.50MB/s][A
+pytorch_model-00003-of-00007.bin:  88%|████████▊ | 1.70G/1.93G [10:51<01:27, 2.61MB/s][A
+pytorch_model-00003-of-00007.bin:  89%|████████▊ | 1.71G/1.93G [10:55<01:22, 2.66MB/s][A
+pytorch_model-00003-of-00007.bin:  89%|████████▉ | 1.72G/1.93G [10:59<01:20, 2.59MB/s][A
+pytorch_model-00003-of-00007.bin:  90%|████████▉ | 1.73G/1.93G [11:03<01:13, 2.68MB/s][A
+pytorch_model-00003-of-00007.bin:  90%|█████████ | 1.74G/1.93G [11:06<01:06, 2.81MB/s][A
+pytorch_model-00003-of-00007.bin:  91%|█████████ | 1.75G/1.93G [11:10<01:03, 2.77MB/s][A
+pytorch_model-00003-of-00007.bin:  91%|█████████▏| 1.76G/1.93G [11:14<00:58, 2.81MB/s][A
+pytorch_model-00003-of-00007.bin:  92%|█████████▏| 1.77G/1.93G [11:17<00:55, 2.82MB/s][A
+pytorch_model-00003-of-00007.bin:  92%|█████████▏| 1.78G/1.93G [11:21<00:52, 2.75MB/s][A
+pytorch_model-00003-of-00007.bin:  93%|█████████▎| 1.79G/1.93G [11:25<00:49, 2.71MB/s][A
+pytorch_model-00003-of-00007.bin:  94%|█████████▎| 1.80G/1.93G [11:28<00:42, 2.92MB/s][A
+pytorch_model-00003-of-00007.bin:  94%|█████████▍| 1.81G/1.93G [11:32<00:38, 2.94MB/s][A
+pytorch_model-00003-of-00007.bin:  95%|█████████▍| 1.82G/1.93G [11:37<00:38, 2.64MB/s][A
+pytorch_model-00003-of-00007.bin:  95%|█████████▌| 1.84G/1.93G [11:40<00:32, 2.86MB/s][A
+pytorch_model-00003-of-00007.bin:  96%|█████████▌| 1.85G/1.93G [11:43<00:27, 2.96MB/s][A
+pytorch_model-00003-of-00007.bin:  96%|█████████▋| 1.86G/1.93G [11:46<00:23, 2.98MB/s][A
+pytorch_model-00003-of-00007.bin:  97%|█████████▋| 1.87G/1.93G [11:50<00:19, 3.09MB/s][A
+pytorch_model-00003-of-00007.bin:  97%|█████████▋| 1.88G/1.93G [11:54<00:17, 2.89MB/s][A
+pytorch_model-00003-of-00007.bin:  98%|█████████▊| 1.89G/1.93G [11:57<00:13, 3.00MB/s][A
+pytorch_model-00003-of-00007.bin:  98%|█████████▊| 1.90G/1.93G [12:00<00:09, 3.00MB/s][A
+pytorch_model-00003-of-00007.bin:  99%|█████████▉| 1.91G/1.93G [12:04<00:06, 3.06MB/s][A
+pytorch_model-00003-of-00007.bin: 100%|█████████▉| 1.92G/1.93G [12:07<00:02, 3.01MB/s][A
+pytorch_model-00003-of-00007.bin: 100%|██████████| 1.93G/1.93G [12:10<00:00, 3.00MB/s][Apytorch_model-00003-of-00007.bin: 100%|██████████| 1.93G/1.93G [12:10<00:00, 2.64MB/s]
+Downloading shards:  43%|████▎     | 3/7 [38:05<50:35, 758.80s/it]  
+pytorch_model-00004-of-00007.bin:   0%|          | 0.00/1.82G [00:00<?, ?B/s][A
+pytorch_model-00004-of-00007.bin:   1%|          | 10.5M/1.82G [00:04<12:31, 2.40MB/s][A
+pytorch_model-00004-of-00007.bin:   1%|          | 21.0M/1.82G [00:08<11:26, 2.61MB/s][A
+pytorch_model-00004-of-00007.bin:   2%|▏         | 31.5M/1.82G [00:11<11:05, 2.68MB/s][A
+pytorch_model-00004-of-00007.bin:   2%|▏         | 41.9M/1.82G [00:15<10:48, 2.74MB/s][A
+pytorch_model-00004-of-00007.bin:   3%|▎         | 52.4M/1.82G [00:19<11:15, 2.61MB/s][A
+pytorch_model-00004-of-00007.bin:   3%|▎         | 62.9M/1.82G [00:24<11:45, 2.48MB/s][A
+pytorch_model-00004-of-00007.bin:   4%|▍         | 73.4M/1.82G [00:28<11:04, 2.62MB/s][A
+pytorch_model-00004-of-00007.bin:   5%|▍         | 83.9M/1.82G [00:33<12:33, 2.30MB/s][A
+pytorch_model-00004-of-00007.bin:   5%|▌         | 94.4M/1.82G [00:37<11:43, 2.45MB/s][A
+pytorch_model-00004-of-00007.bin:   6%|▌         | 105M/1.82G [00:42<11:54, 2.39MB/s] [A
+pytorch_model-00004-of-00007.bin:   6%|▋         | 115M/1.82G [00:45<11:03, 2.56MB/s][A
+pytorch_model-00004-of-00007.bin:   7%|▋         | 126M/1.82G [00:48<10:12, 2.76MB/s][A
+pytorch_model-00004-of-00007.bin:   8%|▊         | 136M/1.82G [00:52<09:43, 2.88MB/s][A
+pytorch_model-00004-of-00007.bin:   8%|▊         | 147M/1.82G [00:55<09:48, 2.83MB/s][A
+pytorch_model-00004-of-00007.bin:   9%|▊         | 157M/1.82G [00:59<09:38, 2.86MB/s][A
+pytorch_model-00004-of-00007.bin:   9%|▉         | 168M/1.82G [01:03<09:39, 2.84MB/s][A
+pytorch_model-00004-of-00007.bin:  10%|▉         | 178M/1.82G [01:06<09:40, 2.82MB/s][A
+pytorch_model-00004-of-00007.bin:  10%|█         | 189M/1.82G [01:10<09:32, 2.84MB/s][A
+pytorch_model-00004-of-00007.bin:  11%|█         | 199M/1.82G [01:14<09:17, 2.90MB/s][A
+pytorch_model-00004-of-00007.bin:  12%|█▏        | 210M/1.82G [01:17<09:20, 2.86MB/s][A
+pytorch_model-00004-of-00007.bin:  12%|█▏        | 220M/1.82G [01:21<09:32, 2.79MB/s][A
+pytorch_model-00004-of-00007.bin:  13%|█▎        | 231M/1.82G [01:26<10:29, 2.52MB/s][A
+pytorch_model-00004-of-00007.bin:  13%|█▎        | 241M/1.82G [01:30<09:45, 2.69MB/s][A
+pytorch_model-00004-of-00007.bin:  14%|█▍        | 252M/1.82G [01:33<09:15, 2.81MB/s][A
+pytorch_model-00004-of-00007.bin:  14%|█▍        | 262M/1.82G [01:37<09:26, 2.74MB/s][A
+pytorch_model-00004-of-00007.bin:  15%|█▌        | 273M/1.82G [01:41<09:11, 2.80MB/s][A
+pytorch_model-00004-of-00007.bin:  16%|█▌        | 283M/1.82G [01:44<08:50, 2.89MB/s][A
+pytorch_model-00004-of-00007.bin:  16%|█▌        | 294M/1.82G [01:48<08:41, 2.92MB/s][A
+pytorch_model-00004-of-00007.bin:  17%|█▋        | 304M/1.82G [01:52<09:02, 2.78MB/s][A
+pytorch_model-00004-of-00007.bin:  17%|█▋        | 315M/1.82G [01:56<09:20, 2.68MB/s][A
+pytorch_model-00004-of-00007.bin:  18%|█▊        | 325M/1.82G [01:59<09:00, 2.76MB/s][A
+pytorch_model-00004-of-00007.bin:  18%|█▊        | 336M/1.82G [02:03<09:04, 2.72MB/s][A
+pytorch_model-00004-of-00007.bin:  19%|█▉        | 346M/1.82G [02:09<10:16, 2.38MB/s][A
+pytorch_model-00004-of-00007.bin:  20%|█▉        | 357M/1.82G [02:14<10:42, 2.27MB/s][A
+pytorch_model-00004-of-00007.bin:  20%|██        | 367M/1.82G [02:17<09:34, 2.52MB/s][A
+pytorch_model-00004-of-00007.bin:  21%|██        | 377M/1.82G [02:21<09:27, 2.54MB/s][A
+pytorch_model-00004-of-00007.bin:  21%|██▏       | 388M/1.82G [02:26<09:24, 2.53MB/s][A
+pytorch_model-00004-of-00007.bin:  22%|██▏       | 398M/1.82G [02:29<08:37, 2.74MB/s][A
+pytorch_model-00004-of-00007.bin:  23%|██▎       | 409M/1.82G [02:32<08:24, 2.79MB/s][A
+pytorch_model-00004-of-00007.bin:  23%|██▎       | 419M/1.82G [02:36<08:21, 2.78MB/s][A
+pytorch_model-00004-of-00007.bin:  24%|██▎       | 430M/1.82G [02:39<08:02, 2.87MB/s][A
+pytorch_model-00004-of-00007.bin:  24%|██▍       | 440M/1.82G [02:43<07:56, 2.88MB/s][A
+pytorch_model-00004-of-00007.bin:  25%|██▍       | 451M/1.82G [02:47<07:56, 2.86MB/s][A
+pytorch_model-00004-of-00007.bin:  25%|██▌       | 461M/1.82G [02:50<07:47, 2.90MB/s][A
+pytorch_model-00004-of-00007.bin:  26%|██▌       | 472M/1.82G [02:54<07:45, 2.89MB/s][A
+pytorch_model-00004-of-00007.bin:  27%|██▋       | 482M/1.82G [02:57<07:34, 2.93MB/s][A
+pytorch_model-00004-of-00007.bin:  27%|██▋       | 493M/1.82G [03:01<07:15, 3.03MB/s][A
+pytorch_model-00004-of-00007.bin:  28%|██▊       | 503M/1.82G [03:04<07:16, 3.00MB/s][A
+pytorch_model-00004-of-00007.bin:  28%|██▊       | 514M/1.82G [03:07<07:03, 3.08MB/s][A
+pytorch_model-00004-of-00007.bin:  29%|██▉       | 524M/1.82G [03:11<07:11, 2.99MB/s][A
+pytorch_model-00004-of-00007.bin:  29%|██▉       | 535M/1.82G [03:14<06:55, 3.08MB/s][A
+pytorch_model-00004-of-00007.bin:  30%|███       | 545M/1.82G [03:18<07:05, 2.99MB/s][A
+pytorch_model-00004-of-00007.bin:  31%|███       | 556M/1.82G [03:21<06:58, 3.01MB/s][A
+pytorch_model-00004-of-00007.bin:  31%|███       | 566M/1.82G [03:25<06:43, 3.09MB/s][A
+pytorch_model-00004-of-00007.bin:  32%|███▏      | 577M/1.82G [03:28<06:34, 3.14MB/s][A
+pytorch_model-00004-of-00007.bin:  32%|███▏      | 587M/1.82G [03:31<06:16, 3.26MB/s][A
+pytorch_model-00004-of-00007.bin:  33%|███▎      | 598M/1.82G [03:34<06:11, 3.28MB/s][A
+pytorch_model-00004-of-00007.bin:  34%|███▎      | 608M/1.82G [03:38<06:27, 3.12MB/s][A
+pytorch_model-00004-of-00007.bin:  34%|███▍      | 619M/1.82G [03:41<06:10, 3.23MB/s][A
+pytorch_model-00004-of-00007.bin:  35%|███▍      | 629M/1.82G [03:44<06:12, 3.18MB/s][A
+pytorch_model-00004-of-00007.bin:  35%|███▌      | 640M/1.82G [03:48<06:22, 3.07MB/s][A
+pytorch_model-00004-of-00007.bin:  36%|███▌      | 650M/1.82G [03:51<06:20, 3.07MB/s][A
+pytorch_model-00004-of-00007.bin:  36%|███▋      | 661M/1.82G [03:55<06:23, 3.01MB/s][A
+pytorch_model-00004-of-00007.bin:  37%|███▋      | 671M/1.82G [03:58<06:14, 3.05MB/s][A
+pytorch_model-00004-of-00007.bin:  38%|███▊      | 682M/1.82G [04:02<06:14, 3.03MB/s][A
+pytorch_model-00004-of-00007.bin:  38%|███▊      | 692M/1.82G [04:05<06:18, 2.96MB/s][A
+pytorch_model-00004-of-00007.bin:  39%|███▊      | 703M/1.82G [04:09<06:06, 3.04MB/s][A
+pytorch_model-00004-of-00007.bin:  39%|███▉      | 713M/1.82G [04:12<06:12, 2.96MB/s][A
+pytorch_model-00004-of-00007.bin:  40%|███▉      | 724M/1.82G [04:16<06:14, 2.92MB/s][A
+pytorch_model-00004-of-00007.bin:  40%|████      | 734M/1.82G [04:20<06:30, 2.77MB/s][A
+pytorch_model-00004-of-00007.bin:  41%|████      | 744M/1.82G [04:24<06:27, 2.76MB/s][A
+pytorch_model-00004-of-00007.bin:  42%|████▏     | 755M/1.82G [04:28<06:11, 2.85MB/s][A
+pytorch_model-00004-of-00007.bin:  42%|████▏     | 765M/1.82G [04:31<06:02, 2.90MB/s][A
+pytorch_model-00004-of-00007.bin:  43%|████▎     | 776M/1.82G [04:35<05:58, 2.90MB/s][A
+pytorch_model-00004-of-00007.bin:  43%|████▎     | 786M/1.82G [04:40<06:39, 2.57MB/s][A
+pytorch_model-00004-of-00007.bin:  44%|████▍     | 797M/1.82G [04:44<06:50, 2.48MB/s][A
+pytorch_model-00004-of-00007.bin:  44%|████▍     | 807M/1.82G [04:48<06:36, 2.54MB/s][A
+pytorch_model-00004-of-00007.bin:  45%|████▌     | 818M/1.82G [04:52<06:08, 2.71MB/s][A
+pytorch_model-00004-of-00007.bin:  46%|████▌     | 828M/1.82G [04:55<05:46, 2.85MB/s][A
+pytorch_model-00004-of-00007.bin:  46%|████▌     | 839M/1.82G [04:59<05:52, 2.77MB/s][A
+pytorch_model-00004-of-00007.bin:  47%|████▋     | 849M/1.82G [05:02<05:44, 2.80MB/s][A
+pytorch_model-00004-of-00007.bin:  47%|████▋     | 860M/1.82G [05:06<05:22, 2.96MB/s][A
+pytorch_model-00004-of-00007.bin:  48%|████▊     | 870M/1.82G [05:09<05:19, 2.96MB/s][A
+pytorch_model-00004-of-00007.bin:  49%|████▊     | 881M/1.82G [05:13<05:34, 2.79MB/s][A
+pytorch_model-00004-of-00007.bin:  49%|████▉     | 891M/1.82G [05:17<05:25, 2.83MB/s][A
+pytorch_model-00004-of-00007.bin:  50%|████▉     | 902M/1.82G [05:21<05:19, 2.86MB/s][A
+pytorch_model-00004-of-00007.bin:  50%|█████     | 912M/1.82G [05:24<05:12, 2.89MB/s][A
+pytorch_model-00004-of-00007.bin:  51%|█████     | 923M/1.82G [05:28<05:05, 2.93MB/s][A
+pytorch_model-00004-of-00007.bin:  51%|█████▏    | 933M/1.82G [05:33<05:45, 2.55MB/s][A
+pytorch_model-00004-of-00007.bin:  52%|█████▏    | 944M/1.82G [05:38<06:09, 2.36MB/s][A
+pytorch_model-00004-of-00007.bin:  53%|█████▎    | 954M/1.82G [05:41<05:36, 2.56MB/s][A
+pytorch_model-00004-of-00007.bin:  53%|█████▎    | 965M/1.82G [05:45<05:19, 2.66MB/s][A
+pytorch_model-00004-of-00007.bin:  54%|█████▎    | 975M/1.82G [05:48<05:01, 2.79MB/s][A
+pytorch_model-00004-of-00007.bin:  54%|█████▍    | 986M/1.82G [05:52<04:45, 2.90MB/s][A
+pytorch_model-00004-of-00007.bin:  55%|█████▍    | 996M/1.82G [05:55<04:35, 2.97MB/s][A
+pytorch_model-00004-of-00007.bin:  55%|█████▌    | 1.01G/1.82G [05:58<04:17, 3.14MB/s][A
+pytorch_model-00004-of-00007.bin:  56%|█████▌    | 1.02G/1.82G [06:01<04:05, 3.26MB/s][A
+pytorch_model-00004-of-00007.bin:  57%|█████▋    | 1.03G/1.82G [06:04<04:08, 3.17MB/s][A
+pytorch_model-00004-of-00007.bin:  57%|█████▋    | 1.04G/1.82G [06:07<03:57, 3.28MB/s][A
+pytorch_model-00004-of-00007.bin:  58%|█████▊    | 1.05G/1.82G [06:11<03:58, 3.22MB/s][A
+pytorch_model-00004-of-00007.bin:  58%|█████▊    | 1.06G/1.82G [06:14<04:07, 3.05MB/s][A
+pytorch_model-00004-of-00007.bin:  59%|█████▉    | 1.07G/1.82G [06:19<04:18, 2.89MB/s][A
+pytorch_model-00004-of-00007.bin:  59%|█████▉    | 1.08G/1.82G [06:22<04:07, 2.97MB/s][A
+pytorch_model-00004-of-00007.bin:  60%|██████    | 1.09G/1.82G [06:26<04:16, 2.83MB/s][A
+pytorch_model-00004-of-00007.bin:  61%|██████    | 1.10G/1.82G [06:29<04:07, 2.89MB/s][A
+pytorch_model-00004-of-00007.bin:  61%|██████    | 1.11G/1.82G [06:33<04:00, 2.92MB/s][A
+pytorch_model-00004-of-00007.bin:  62%|██████▏   | 1.12G/1.82G [06:37<04:04, 2.84MB/s][A
+pytorch_model-00004-of-00007.bin:  62%|██████▏   | 1.13G/1.82G [06:43<04:47, 2.38MB/s][A
+pytorch_model-00004-of-00007.bin:  63%|██████▎   | 1.14G/1.82G [06:48<04:51, 2.30MB/s][A
+pytorch_model-00004-of-00007.bin:  64%|██████▎   | 1.15G/1.82G [06:51<04:21, 2.53MB/s][A
+pytorch_model-00004-of-00007.bin:  64%|██████▍   | 1.16G/1.82G [06:54<03:57, 2.75MB/s][A
+pytorch_model-00004-of-00007.bin:  65%|██████▍   | 1.17G/1.82G [06:58<03:52, 2.76MB/s][A
+pytorch_model-00004-of-00007.bin:  65%|██████▌   | 1.18G/1.82G [07:05<04:54, 2.14MB/s][A
+pytorch_model-00004-of-00007.bin:  66%|██████▌   | 1.20G/1.82G [07:11<05:13, 1.98MB/s][A
+pytorch_model-00004-of-00007.bin:  66%|██████▋   | 1.21G/1.82G [07:15<04:39, 2.18MB/s][A
+pytorch_model-00004-of-00007.bin:  67%|██████▋   | 1.22G/1.82G [07:20<04:43, 2.11MB/s][A
+pytorch_model-00004-of-00007.bin:  68%|██████▊   | 1.23G/1.82G [07:25<04:37, 2.12MB/s][A
+pytorch_model-00004-of-00007.bin:  68%|██████▊   | 1.24G/1.82G [07:29<04:05, 2.35MB/s][A
+pytorch_model-00004-of-00007.bin:  69%|██████▊   | 1.25G/1.82G [07:32<03:43, 2.53MB/s][A
+pytorch_model-00004-of-00007.bin:  69%|██████▉   | 1.26G/1.82G [07:35<03:26, 2.70MB/s][A
+pytorch_model-00004-of-00007.bin:  70%|██████▉   | 1.27G/1.82G [07:39<03:17, 2.77MB/s][A
+pytorch_model-00004-of-00007.bin:  70%|███████   | 1.28G/1.82G [07:43<03:22, 2.65MB/s][A
+pytorch_model-00004-of-00007.bin:  71%|███████   | 1.29G/1.82G [07:48<03:34, 2.45MB/s][A
+pytorch_model-00004-of-00007.bin:  72%|███████▏  | 1.30G/1.82G [07:53<03:32, 2.42MB/s][A
+pytorch_model-00004-of-00007.bin:  72%|███████▏  | 1.31G/1.82G [07:57<03:27, 2.44MB/s][A
+pytorch_model-00004-of-00007.bin:  73%|███████▎  | 1.32G/1.82G [08:01<03:15, 2.52MB/s][A
+pytorch_model-00004-of-00007.bin:  73%|███████▎  | 1.33G/1.82G [08:08<03:57, 2.03MB/s][A
+pytorch_model-00004-of-00007.bin:  74%|███████▍  | 1.34G/1.82G [08:19<05:00, 1.57MB/s][A
+pytorch_model-00004-of-00007.bin:  75%|███████▍  | 1.35G/1.82G [08:29<05:41, 1.35MB/s][A
+pytorch_model-00004-of-00007.bin:  75%|███████▌  | 1.36G/1.82G [08:40<06:16, 1.20MB/s][A
+pytorch_model-00004-of-00007.bin:  76%|███████▌  | 1.37G/1.82G [08:47<05:53, 1.25MB/s][A
+pytorch_model-00004-of-00007.bin:  76%|███████▋  | 1.38G/1.82G [08:56<05:48, 1.24MB/s][A
+pytorch_model-00004-of-00007.bin:  77%|███████▋  | 1.39G/1.82G [09:01<04:54, 1.43MB/s][A
+pytorch_model-00004-of-00007.bin:  77%|███████▋  | 1.41G/1.82G [09:06<04:17, 1.60MB/s][A
+pytorch_model-00004-of-00007.bin:  78%|███████▊  | 1.42G/1.82G [09:11<04:02, 1.65MB/s][A
+pytorch_model-00004-of-00007.bin:  79%|███████▊  | 1.43G/1.82G [09:16<03:32, 1.83MB/s][A
+pytorch_model-00004-of-00007.bin:  79%|███████▉  | 1.44G/1.82G [09:20<03:09, 2.00MB/s][A
+pytorch_model-00004-of-00007.bin:  80%|███████▉  | 1.45G/1.82G [09:24<02:49, 2.18MB/s][A
+pytorch_model-00004-of-00007.bin:  80%|████████  | 1.46G/1.82G [09:28<02:43, 2.19MB/s][A
+pytorch_model-00004-of-00007.bin:  81%|████████  | 1.47G/1.82G [09:33<02:33, 2.27MB/s][A
+pytorch_model-00004-of-00007.bin:  81%|████████▏ | 1.48G/1.82G [09:37<02:22, 2.37MB/s][A
+pytorch_model-00004-of-00007.bin:  82%|████████▏ | 1.49G/1.82G [09:42<02:26, 2.23MB/s][A
+pytorch_model-00004-of-00007.bin:  83%|████████▎ | 1.50G/1.82G [09:47<02:22, 2.21MB/s][A
+pytorch_model-00004-of-00007.bin:  83%|████████▎ | 1.51G/1.82G [09:52<02:20, 2.18MB/s][A
+pytorch_model-00004-of-00007.bin:  84%|████████▍ | 1.52G/1.82G [09:55<02:04, 2.37MB/s][A
+pytorch_model-00004-of-00007.bin:  84%|████████▍ | 1.53G/1.82G [09:59<01:52, 2.53MB/s][A
+pytorch_model-00004-of-00007.bin:  85%|████████▍ | 1.54G/1.82G [10:02<01:45, 2.61MB/s][A
+pytorch_model-00004-of-00007.bin:  85%|████████▌ | 1.55G/1.82G [10:06<01:35, 2.76MB/s][A
+pytorch_model-00004-of-00007.bin:  86%|████████▌ | 1.56G/1.82G [10:09<01:24, 2.98MB/s][A
+pytorch_model-00004-of-00007.bin:  87%|████████▋ | 1.57G/1.82G [10:12<01:19, 3.06MB/s][A
+pytorch_model-00004-of-00007.bin:  87%|████████▋ | 1.58G/1.82G [10:15<01:15, 3.09MB/s][A
+pytorch_model-00004-of-00007.bin:  88%|████████▊ | 1.59G/1.82G [10:18<01:09, 3.18MB/s][A
+pytorch_model-00004-of-00007.bin:  88%|████████▊ | 1.60G/1.82G [10:21<01:03, 3.32MB/s][A
+pytorch_model-00004-of-00007.bin:  89%|████████▉ | 1.61G/1.82G [10:24<00:59, 3.39MB/s][A
+pytorch_model-00004-of-00007.bin:  90%|████████▉ | 1.63G/1.82G [10:27<00:53, 3.55MB/s][A
+pytorch_model-00004-of-00007.bin:  90%|█████████ | 1.64G/1.82G [10:29<00:49, 3.62MB/s][A
+pytorch_model-00004-of-00007.bin:  91%|█████████ | 1.65G/1.82G [10:32<00:46, 3.61MB/s][A
+pytorch_model-00004-of-00007.bin:  91%|█████████▏| 1.66G/1.82G [10:35<00:44, 3.55MB/s][A
+pytorch_model-00004-of-00007.bin:  92%|█████████▏| 1.67G/1.82G [10:38<00:42, 3.50MB/s][A
+pytorch_model-00004-of-00007.bin:  92%|█████████▏| 1.68G/1.82G [10:41<00:38, 3.53MB/s][A
+pytorch_model-00004-of-00007.bin:  93%|█████████▎| 1.69G/1.82G [10:45<00:37, 3.41MB/s][A
+pytorch_model-00004-of-00007.bin:  94%|█████████▎| 1.70G/1.82G [10:48<00:33, 3.43MB/s][A
+pytorch_model-00004-of-00007.bin:  94%|█████████▍| 1.71G/1.82G [10:51<00:30, 3.43MB/s][A
+pytorch_model-00004-of-00007.bin:  95%|█████████▍| 1.72G/1.82G [10:54<00:29, 3.24MB/s][A
+pytorch_model-00004-of-00007.bin:  95%|█████████▌| 1.73G/1.82G [10:58<00:27, 3.11MB/s][A
+pytorch_model-00004-of-00007.bin:  96%|█████████▌| 1.74G/1.82G [11:02<00:24, 3.08MB/s][A
+pytorch_model-00004-of-00007.bin:  96%|█████████▋| 1.75G/1.82G [11:05<00:20, 3.13MB/s][A
+pytorch_model-00004-of-00007.bin:  97%|█████████▋| 1.76G/1.82G [11:08<00:16, 3.23MB/s][A
+pytorch_model-00004-of-00007.bin:  98%|█████████▊| 1.77G/1.82G [11:12<00:14, 2.96MB/s][A
+pytorch_model-00004-of-00007.bin:  98%|█████████▊| 1.78G/1.82G [11:15<00:10, 3.17MB/s][A
+pytorch_model-00004-of-00007.bin:  99%|█████████▉| 1.79G/1.82G [11:18<00:07, 3.14MB/s][A
+pytorch_model-00004-of-00007.bin:  99%|█████████▉| 1.80G/1.82G [11:21<00:03, 3.22MB/s][A
+pytorch_model-00004-of-00007.bin: 100%|█████████▉| 1.81G/1.82G [11:25<00:00, 3.23MB/s][A
+pytorch_model-00004-of-00007.bin: 100%|██████████| 1.82G/1.82G [11:25<00:00, 3.26MB/s][Apytorch_model-00004-of-00007.bin: 100%|██████████| 1.82G/1.82G [11:25<00:00, 2.65MB/s]
+Downloading shards:  57%|█████▋    | 4/7 [49:32<36:30, 730.31s/it]
+pytorch_model-00005-of-00007.bin:   0%|          | 0.00/1.97G [00:00<?, ?B/s][A
+pytorch_model-00005-of-00007.bin:   1%|          | 10.5M/1.97G [00:03<11:47, 2.77MB/s][A
+pytorch_model-00005-of-00007.bin:   1%|          | 21.0M/1.97G [00:07<11:16, 2.88MB/s][A
+pytorch_model-00005-of-00007.bin:   2%|▏         | 31.5M/1.97G [00:10<10:39, 3.03MB/s][A
+pytorch_model-00005-of-00007.bin:   2%|▏         | 41.9M/1.97G [00:13<09:51, 3.26MB/s][A
+pytorch_model-00005-of-00007.bin:   3%|▎         | 52.4M/1.97G [00:16<09:18, 3.43MB/s][A
+pytorch_model-00005-of-00007.bin:   3%|▎         | 62.9M/1.97G [00:19<09:22, 3.39MB/s][A
+pytorch_model-00005-of-00007.bin:   4%|▎         | 73.4M/1.97G [00:22<08:56, 3.53MB/s][A
+pytorch_model-00005-of-00007.bin:   4%|▍         | 83.9M/1.97G [00:24<08:36, 3.65MB/s][A
+pytorch_model-00005-of-00007.bin:   5%|▍         | 94.4M/1.97G [00:28<09:23, 3.32MB/s][A
+pytorch_model-00005-of-00007.bin:   5%|▌         | 105M/1.97G [00:32<09:42, 3.20MB/s] [A
+pytorch_model-00005-of-00007.bin:   6%|▌         | 115M/1.97G [00:35<09:34, 3.23MB/s][A
+pytorch_model-00005-of-00007.bin:   6%|▋         | 126M/1.97G [00:38<09:28, 3.24MB/s][A
+pytorch_model-00005-of-00007.bin:   7%|▋         | 136M/1.97G [00:42<09:45, 3.13MB/s][A
+pytorch_model-00005-of-00007.bin:   7%|▋         | 147M/1.97G [00:45<09:51, 3.08MB/s][A
+pytorch_model-00005-of-00007.bin:   8%|▊         | 157M/1.97G [00:48<09:25, 3.20MB/s][A
+pytorch_model-00005-of-00007.bin:   9%|▊         | 168M/1.97G [00:51<09:12, 3.26MB/s][A
+pytorch_model-00005-of-00007.bin:   9%|▉         | 178M/1.97G [00:54<09:03, 3.29MB/s][A
+pytorch_model-00005-of-00007.bin:  10%|▉         | 189M/1.97G [00:58<09:29, 3.12MB/s][A
+pytorch_model-00005-of-00007.bin:  10%|█         | 199M/1.97G [01:01<09:16, 3.18MB/s][A
+pytorch_model-00005-of-00007.bin:  11%|█         | 210M/1.97G [01:04<09:04, 3.23MB/s][A
+pytorch_model-00005-of-00007.bin:  11%|█         | 220M/1.97G [01:08<09:11, 3.17MB/s][A
+pytorch_model-00005-of-00007.bin:  12%|█▏        | 231M/1.97G [01:13<10:37, 2.73MB/s][A
+pytorch_model-00005-of-00007.bin:  12%|█▏        | 241M/1.97G [01:17<10:49, 2.66MB/s][A
+pytorch_model-00005-of-00007.bin:  13%|█▎        | 252M/1.97G [01:20<10:16, 2.78MB/s][A
+pytorch_model-00005-of-00007.bin:  13%|█▎        | 262M/1.97G [01:24<10:17, 2.76MB/s][A
+pytorch_model-00005-of-00007.bin:  14%|█▍        | 273M/1.97G [01:28<10:21, 2.73MB/s][A
+pytorch_model-00005-of-00007.bin:  14%|█▍        | 283M/1.97G [01:31<09:33, 2.94MB/s][A
+pytorch_model-00005-of-00007.bin:  15%|█▍        | 294M/1.97G [01:35<09:38, 2.90MB/s][A
+pytorch_model-00005-of-00007.bin:  15%|█▌        | 304M/1.97G [01:38<09:23, 2.95MB/s][A
+pytorch_model-00005-of-00007.bin:  16%|█▌        | 315M/1.97G [01:42<09:28, 2.91MB/s][A
+pytorch_model-00005-of-00007.bin:  17%|█▋        | 325M/1.97G [01:46<09:50, 2.78MB/s][A
+pytorch_model-00005-of-00007.bin:  17%|█▋        | 336M/1.97G [01:49<09:24, 2.89MB/s][A
+pytorch_model-00005-of-00007.bin:  18%|█▊        | 346M/1.97G [01:53<09:15, 2.92MB/s][A
+pytorch_model-00005-of-00007.bin:  18%|█▊        | 357M/1.97G [01:57<09:30, 2.83MB/s][A
+pytorch_model-00005-of-00007.bin:  19%|█▊        | 367M/1.97G [02:00<09:03, 2.95MB/s][A
+pytorch_model-00005-of-00007.bin:  19%|█▉        | 377M/1.97G [02:03<08:40, 3.06MB/s][A
+pytorch_model-00005-of-00007.bin:  20%|█▉        | 388M/1.97G [02:07<08:58, 2.93MB/s][A
+pytorch_model-00005-of-00007.bin:  20%|██        | 398M/1.97G [02:11<08:45, 2.99MB/s][A
+pytorch_model-00005-of-00007.bin:  21%|██        | 409M/1.97G [02:14<08:35, 3.02MB/s][A
+pytorch_model-00005-of-00007.bin:  21%|██▏       | 419M/1.97G [02:17<08:34, 3.01MB/s][A
+pytorch_model-00005-of-00007.bin:  22%|██▏       | 430M/1.97G [02:22<09:21, 2.74MB/s][A
+pytorch_model-00005-of-00007.bin:  22%|██▏       | 440M/1.97G [02:25<08:50, 2.88MB/s][A
+pytorch_model-00005-of-00007.bin:  23%|██▎       | 451M/1.97G [02:29<08:45, 2.89MB/s][A
+pytorch_model-00005-of-00007.bin:  23%|██▎       | 461M/1.97G [02:32<08:31, 2.95MB/s][A
+pytorch_model-00005-of-00007.bin:  24%|██▍       | 472M/1.97G [02:36<08:23, 2.97MB/s][A
+pytorch_model-00005-of-00007.bin:  25%|██▍       | 482M/1.97G [02:39<08:12, 3.01MB/s][A
+pytorch_model-00005-of-00007.bin:  25%|██▌       | 493M/1.97G [02:42<07:43, 3.18MB/s][A
+pytorch_model-00005-of-00007.bin:  26%|██▌       | 503M/1.97G [02:45<07:36, 3.21MB/s][A
+pytorch_model-00005-of-00007.bin:  26%|██▌       | 514M/1.97G [02:49<07:43, 3.14MB/s][A
+pytorch_model-00005-of-00007.bin:  27%|██▋       | 524M/1.97G [02:52<07:52, 3.06MB/s][A
+pytorch_model-00005-of-00007.bin:  27%|██▋       | 535M/1.97G [02:56<07:42, 3.10MB/s][A
+pytorch_model-00005-of-00007.bin:  28%|██▊       | 545M/1.97G [02:59<07:40, 3.09MB/s][A
+pytorch_model-00005-of-00007.bin:  28%|██▊       | 556M/1.97G [03:03<07:53, 2.98MB/s][A
+pytorch_model-00005-of-00007.bin:  29%|██▉       | 566M/1.97G [03:06<07:51, 2.97MB/s][A
+pytorch_model-00005-of-00007.bin:  29%|██▉       | 577M/1.97G [03:10<07:53, 2.94MB/s][A
+pytorch_model-00005-of-00007.bin:  30%|██▉       | 587M/1.97G [03:14<07:55, 2.90MB/s][A
+pytorch_model-00005-of-00007.bin:  30%|███       | 598M/1.97G [03:17<07:34, 3.02MB/s][A
+pytorch_model-00005-of-00007.bin:  31%|███       | 608M/1.97G [03:20<07:20, 3.09MB/s][A
+pytorch_model-00005-of-00007.bin:  31%|███▏      | 619M/1.97G [03:23<07:07, 3.16MB/s][A
+pytorch_model-00005-of-00007.bin:  32%|███▏      | 629M/1.97G [03:27<07:25, 3.00MB/s][A
+pytorch_model-00005-of-00007.bin:  32%|███▏      | 640M/1.97G [03:30<07:15, 3.05MB/s][A
+pytorch_model-00005-of-00007.bin:  33%|███▎      | 650M/1.97G [03:33<06:55, 3.17MB/s][A
+pytorch_model-00005-of-00007.bin:  34%|███▎      | 661M/1.97G [03:37<06:49, 3.19MB/s][A
+pytorch_model-00005-of-00007.bin:  34%|███▍      | 671M/1.97G [03:40<06:52, 3.14MB/s][A
+pytorch_model-00005-of-00007.bin:  35%|███▍      | 682M/1.97G [03:44<07:14, 2.96MB/s][A
+pytorch_model-00005-of-00007.bin:  35%|███▌      | 692M/1.97G [03:48<07:04, 3.01MB/s][A
+pytorch_model-00005-of-00007.bin:  36%|███▌      | 703M/1.97G [03:51<07:04, 2.98MB/s][A
+pytorch_model-00005-of-00007.bin:  36%|███▌      | 713M/1.97G [03:54<06:55, 3.02MB/s][A
+pytorch_model-00005-of-00007.bin:  37%|███▋      | 724M/1.97G [03:58<06:36, 3.14MB/s][A
+pytorch_model-00005-of-00007.bin:  37%|███▋      | 734M/1.97G [04:01<06:30, 3.16MB/s][A
+pytorch_model-00005-of-00007.bin:  38%|███▊      | 744M/1.97G [04:04<06:25, 3.18MB/s][A
+pytorch_model-00005-of-00007.bin:  38%|███▊      | 755M/1.97G [04:08<06:45, 2.99MB/s][A
+pytorch_model-00005-of-00007.bin:  39%|███▉      | 765M/1.97G [04:12<06:54, 2.90MB/s][A
+pytorch_model-00005-of-00007.bin:  39%|███▉      | 776M/1.97G [04:16<06:51, 2.90MB/s][A
+pytorch_model-00005-of-00007.bin:  40%|███▉      | 786M/1.97G [04:21<07:40, 2.57MB/s][A
+pytorch_model-00005-of-00007.bin:  40%|████      | 797M/1.97G [04:25<07:29, 2.61MB/s][A
+pytorch_model-00005-of-00007.bin:  41%|████      | 807M/1.97G [04:28<07:16, 2.66MB/s][A
+pytorch_model-00005-of-00007.bin:  42%|████▏     | 818M/1.97G [04:32<07:15, 2.64MB/s][A
+pytorch_model-00005-of-00007.bin:  42%|████▏     | 828M/1.97G [04:37<07:29, 2.54MB/s][A
+pytorch_model-00005-of-00007.bin:  43%|████▎     | 839M/1.97G [04:40<07:05, 2.65MB/s][A
+pytorch_model-00005-of-00007.bin:  43%|████▎     | 849M/1.97G [04:45<07:36, 2.45MB/s][A
+pytorch_model-00005-of-00007.bin:  44%|████▎     | 860M/1.97G [04:49<07:12, 2.56MB/s][A
+pytorch_model-00005-of-00007.bin:  44%|████▍     | 870M/1.97G [04:53<07:05, 2.58MB/s][A
+pytorch_model-00005-of-00007.bin:  45%|████▍     | 881M/1.97G [04:57<06:50, 2.65MB/s][A
+pytorch_model-00005-of-00007.bin:  45%|████▌     | 891M/1.97G [05:01<06:40, 2.69MB/s][A
+pytorch_model-00005-of-00007.bin:  46%|████▌     | 902M/1.97G [05:04<06:33, 2.71MB/s][A
+pytorch_model-00005-of-00007.bin:  46%|████▋     | 912M/1.97G [05:08<06:33, 2.68MB/s][A
+pytorch_model-00005-of-00007.bin:  47%|████▋     | 923M/1.97G [05:12<06:36, 2.64MB/s][A
+pytorch_model-00005-of-00007.bin:  47%|████▋     | 933M/1.97G [05:16<06:16, 2.75MB/s][A
+pytorch_model-00005-of-00007.bin:  48%|████▊     | 944M/1.97G [05:19<05:58, 2.86MB/s][A
+pytorch_model-00005-of-00007.bin:  48%|████▊     | 954M/1.97G [05:23<05:57, 2.83MB/s][A
+pytorch_model-00005-of-00007.bin:  49%|████▉     | 965M/1.97G [05:27<06:02, 2.77MB/s][A
+pytorch_model-00005-of-00007.bin:  50%|████▉     | 975M/1.97G [05:31<06:02, 2.74MB/s][A
+pytorch_model-00005-of-00007.bin:  50%|█████     | 986M/1.97G [05:35<06:06, 2.68MB/s][A
+pytorch_model-00005-of-00007.bin:  51%|█████     | 996M/1.97G [05:39<06:00, 2.70MB/s][A
+pytorch_model-00005-of-00007.bin:  51%|█████     | 1.01G/1.97G [05:43<05:50, 2.75MB/s][A
+pytorch_model-00005-of-00007.bin:  52%|█████▏    | 1.02G/1.97G [05:46<05:49, 2.72MB/s][A
+pytorch_model-00005-of-00007.bin:  52%|█████▏    | 1.03G/1.97G [05:50<05:33, 2.82MB/s][A
+pytorch_model-00005-of-00007.bin:  53%|█████▎    | 1.04G/1.97G [05:53<05:19, 2.92MB/s][A
+pytorch_model-00005-of-00007.bin:  53%|█████▎    | 1.05G/1.97G [05:57<05:09, 2.97MB/s][A
+pytorch_model-00005-of-00007.bin:  54%|█████▍    | 1.06G/1.97G [06:00<05:08, 2.94MB/s][A
+pytorch_model-00005-of-00007.bin:  54%|█████▍    | 1.07G/1.97G [06:04<04:58, 3.01MB/s][A
+pytorch_model-00005-of-00007.bin:  55%|█████▍    | 1.08G/1.97G [06:07<05:02, 2.94MB/s][A
+pytorch_model-00005-of-00007.bin:  55%|█████▌    | 1.09G/1.97G [06:11<04:56, 2.96MB/s][A
+pytorch_model-00005-of-00007.bin:  56%|█████▌    | 1.10G/1.97G [06:16<05:35, 2.58MB/s][A
+pytorch_model-00005-of-00007.bin:  56%|█████▋    | 1.11G/1.97G [06:20<05:20, 2.67MB/s][A
+pytorch_model-00005-of-00007.bin:  57%|█████▋    | 1.12G/1.97G [06:23<05:05, 2.77MB/s][A
+pytorch_model-00005-of-00007.bin:  58%|█████▊    | 1.13G/1.97G [06:27<05:10, 2.69MB/s][A
+pytorch_model-00005-of-00007.bin:  58%|█████▊    | 1.14G/1.97G [06:31<04:52, 2.83MB/s][A
+pytorch_model-00005-of-00007.bin:  59%|█████▊    | 1.15G/1.97G [06:34<04:46, 2.84MB/s][A
+pytorch_model-00005-of-00007.bin:  59%|█████▉    | 1.16G/1.97G [06:37<04:30, 2.98MB/s][A
+pytorch_model-00005-of-00007.bin:  60%|█████▉    | 1.17G/1.97G [06:41<04:19, 3.06MB/s][A
+pytorch_model-00005-of-00007.bin:  60%|██████    | 1.18G/1.97G [06:44<04:26, 2.94MB/s][A
+pytorch_model-00005-of-00007.bin:  61%|██████    | 1.20G/1.97G [06:48<04:16, 3.01MB/s][A
+pytorch_model-00005-of-00007.bin:  61%|██████▏   | 1.21G/1.97G [06:51<04:08, 3.07MB/s][A
+pytorch_model-00005-of-00007.bin:  62%|██████▏   | 1.22G/1.97G [06:55<04:08, 3.02MB/s][A
+pytorch_model-00005-of-00007.bin:  62%|██████▏   | 1.23G/1.97G [06:58<04:04, 3.04MB/s][A
+pytorch_model-00005-of-00007.bin:  63%|██████▎   | 1.24G/1.97G [07:01<03:52, 3.15MB/s][A
+pytorch_model-00005-of-00007.bin:  63%|██████▎   | 1.25G/1.97G [07:05<04:01, 2.98MB/s][A
+pytorch_model-00005-of-00007.bin:  64%|██████▍   | 1.26G/1.97G [07:09<04:02, 2.93MB/s][A
+pytorch_model-00005-of-00007.bin:  64%|██████▍   | 1.27G/1.97G [07:12<03:47, 3.08MB/s][A
+pytorch_model-00005-of-00007.bin:  65%|██████▍   | 1.28G/1.97G [07:15<03:41, 3.10MB/s][A
+pytorch_model-00005-of-00007.bin:  66%|██████▌   | 1.29G/1.97G [07:19<03:44, 3.02MB/s][A
+pytorch_model-00005-of-00007.bin:  66%|██████▌   | 1.30G/1.97G [07:23<03:48, 2.92MB/s][A
+pytorch_model-00005-of-00007.bin:  67%|██████▋   | 1.31G/1.97G [07:26<03:44, 2.92MB/s][A
+pytorch_model-00005-of-00007.bin:  67%|██████▋   | 1.32G/1.97G [07:30<03:43, 2.89MB/s][A
+pytorch_model-00005-of-00007.bin:  68%|██████▊   | 1.33G/1.97G [07:33<03:39, 2.90MB/s][A
+pytorch_model-00005-of-00007.bin:  68%|██████▊   | 1.34G/1.97G [07:38<03:55, 2.66MB/s][A
+pytorch_model-00005-of-00007.bin:  69%|██████▊   | 1.35G/1.97G [07:42<03:42, 2.77MB/s][A
+pytorch_model-00005-of-00007.bin:  69%|██████▉   | 1.36G/1.97G [07:46<03:47, 2.66MB/s][A
+pytorch_model-00005-of-00007.bin:  70%|██████▉   | 1.37G/1.97G [07:50<03:43, 2.66MB/s][A
+pytorch_model-00005-of-00007.bin:  70%|███████   | 1.38G/1.97G [07:54<03:40, 2.64MB/s][A
+pytorch_model-00005-of-00007.bin:  71%|███████   | 1.39G/1.97G [07:57<03:28, 2.75MB/s][A
+pytorch_model-00005-of-00007.bin:  71%|███████▏  | 1.41G/1.97G [08:00<03:08, 2.98MB/s][A
+pytorch_model-00005-of-00007.bin:  72%|███████▏  | 1.42G/1.97G [08:03<02:55, 3.15MB/s][A
+pytorch_model-00005-of-00007.bin:  72%|███████▏  | 1.43G/1.97G [08:06<02:50, 3.19MB/s][A
+pytorch_model-00005-of-00007.bin:  73%|███████▎  | 1.44G/1.97G [08:10<02:48, 3.16MB/s][A
+pytorch_model-00005-of-00007.bin:  74%|███████▎  | 1.45G/1.97G [08:13<02:48, 3.09MB/s][A
+pytorch_model-00005-of-00007.bin:  74%|███████▍  | 1.46G/1.97G [08:17<02:44, 3.10MB/s][A
+pytorch_model-00005-of-00007.bin:  75%|███████▍  | 1.47G/1.97G [08:20<02:42, 3.08MB/s][A
+pytorch_model-00005-of-00007.bin:  75%|███████▌  | 1.48G/1.97G [08:24<02:48, 2.91MB/s][A
+pytorch_model-00005-of-00007.bin:  76%|███████▌  | 1.49G/1.97G [08:29<03:04, 2.60MB/s][A
+pytorch_model-00005-of-00007.bin:  76%|███████▌  | 1.50G/1.97G [08:34<03:09, 2.48MB/s][A
+pytorch_model-00005-of-00007.bin:  77%|███████▋  | 1.51G/1.97G [08:37<02:56, 2.59MB/s][A
+pytorch_model-00005-of-00007.bin:  77%|███████▋  | 1.52G/1.97G [08:41<02:44, 2.72MB/s][A
+pytorch_model-00005-of-00007.bin:  78%|███████▊  | 1.53G/1.97G [08:44<02:39, 2.75MB/s][A
+pytorch_model-00005-of-00007.bin:  78%|███████▊  | 1.54G/1.97G [08:48<02:33, 2.79MB/s][A
+pytorch_model-00005-of-00007.bin:  79%|███████▉  | 1.55G/1.97G [08:53<02:37, 2.64MB/s][A
+pytorch_model-00005-of-00007.bin:  79%|███████▉  | 1.56G/1.97G [08:57<02:36, 2.59MB/s][A
+pytorch_model-00005-of-00007.bin:  80%|███████▉  | 1.57G/1.97G [09:00<02:24, 2.74MB/s][A
+pytorch_model-00005-of-00007.bin:  80%|████████  | 1.58G/1.97G [09:03<02:15, 2.85MB/s][A
+pytorch_model-00005-of-00007.bin:  81%|████████  | 1.59G/1.97G [09:07<02:07, 2.94MB/s][A
+pytorch_model-00005-of-00007.bin:  82%|████████▏ | 1.60G/1.97G [09:10<02:04, 2.91MB/s][A
+pytorch_model-00005-of-00007.bin:  82%|████████▏ | 1.61G/1.97G [09:14<01:57, 3.01MB/s][A
+pytorch_model-00005-of-00007.bin:  83%|████████▎ | 1.63G/1.97G [09:17<01:53, 3.02MB/s][A
+pytorch_model-00005-of-00007.bin:  83%|████████▎ | 1.64G/1.97G [09:21<01:58, 2.81MB/s][A
+pytorch_model-00005-of-00007.bin:  84%|████████▎ | 1.65G/1.97G [09:26<01:59, 2.69MB/s][A
+pytorch_model-00005-of-00007.bin:  84%|████████▍ | 1.66G/1.97G [09:30<01:56, 2.67MB/s][A
+pytorch_model-00005-of-00007.bin:  85%|████████▍ | 1.67G/1.97G [09:34<01:51, 2.70MB/s][A
+pytorch_model-00005-of-00007.bin:  85%|████████▌ | 1.68G/1.97G [09:38<01:51, 2.60MB/s][A
+pytorch_model-00005-of-00007.bin:  86%|████████▌ | 1.69G/1.97G [09:42<01:46, 2.64MB/s][A
+pytorch_model-00005-of-00007.bin:  86%|████████▋ | 1.70G/1.97G [09:46<01:42, 2.62MB/s][A
+pytorch_model-00005-of-00007.bin:  87%|████████▋ | 1.71G/1.97G [09:49<01:34, 2.74MB/s][A
+pytorch_model-00005-of-00007.bin:  87%|████████▋ | 1.72G/1.97G [09:54<01:34, 2.64MB/s][A
+pytorch_model-00005-of-00007.bin:  88%|████████▊ | 1.73G/1.97G [09:57<01:27, 2.72MB/s][A
+pytorch_model-00005-of-00007.bin:  88%|████████▊ | 1.74G/1.97G [10:01<01:26, 2.63MB/s][A
+pytorch_model-00005-of-00007.bin:  89%|████████▉ | 1.75G/1.97G [10:06<01:24, 2.57MB/s][A
+pytorch_model-00005-of-00007.bin:  89%|████████▉ | 1.76G/1.97G [10:09<01:17, 2.66MB/s][A
+pytorch_model-00005-of-00007.bin:  90%|█████████ | 1.77G/1.97G [10:14<01:15, 2.60MB/s][A
+pytorch_model-00005-of-00007.bin:  91%|█████████ | 1.78G/1.97G [10:18<01:13, 2.54MB/s][A
+pytorch_model-00005-of-00007.bin:  91%|█████████ | 1.79G/1.97G [10:21<01:04, 2.74MB/s][A
+pytorch_model-00005-of-00007.bin:  92%|█████████▏| 1.80G/1.97G [10:25<00:58, 2.82MB/s][A
+pytorch_model-00005-of-00007.bin:  92%|█████████▏| 1.81G/1.97G [10:28<00:52, 2.93MB/s][A
+pytorch_model-00005-of-00007.bin:  93%|█████████▎| 1.82G/1.97G [10:31<00:48, 2.98MB/s][A
+pytorch_model-00005-of-00007.bin:  93%|█████████▎| 1.84G/1.97G [10:35<00:45, 2.95MB/s][A
+pytorch_model-00005-of-00007.bin:  94%|█████████▍| 1.85G/1.97G [10:38<00:41, 2.92MB/s][A
+pytorch_model-00005-of-00007.bin:  94%|█████████▍| 1.86G/1.97G [10:42<00:38, 2.90MB/s][A
+pytorch_model-00005-of-00007.bin:  95%|█████████▍| 1.87G/1.97G [10:47<00:37, 2.69MB/s][A
+pytorch_model-00005-of-00007.bin:  95%|█████████▌| 1.88G/1.97G [10:50<00:32, 2.78MB/s][A
+pytorch_model-00005-of-00007.bin:  96%|█████████▌| 1.89G/1.97G [10:54<00:28, 2.87MB/s][A
+pytorch_model-00005-of-00007.bin:  96%|█████████▋| 1.90G/1.97G [10:57<00:25, 2.81MB/s][A
+pytorch_model-00005-of-00007.bin:  97%|█████████▋| 1.91G/1.97G [11:01<00:21, 2.79MB/s][A
+pytorch_model-00005-of-00007.bin:  97%|█████████▋| 1.92G/1.97G [11:05<00:17, 2.82MB/s][A
+pytorch_model-00005-of-00007.bin:  98%|█████████▊| 1.93G/1.97G [11:09<00:14, 2.78MB/s][A
+pytorch_model-00005-of-00007.bin:  99%|█████████▊| 1.94G/1.97G [11:12<00:09, 2.86MB/s][A
+pytorch_model-00005-of-00007.bin:  99%|█████████▉| 1.95G/1.97G [11:16<00:06, 2.75MB/s][A
+pytorch_model-00005-of-00007.bin: 100%|█████████▉| 1.96G/1.97G [11:20<00:02, 2.75MB/s][A
+pytorch_model-00005-of-00007.bin: 100%|██████████| 1.97G/1.97G [11:23<00:00, 2.66MB/s][Apytorch_model-00005-of-00007.bin: 100%|██████████| 1.97G/1.97G [11:23<00:00, 2.88MB/s]
+Downloading shards:  71%|███████▏  | 5/7 [1:00:57<23:47, 713.99s/it]
+pytorch_model-00006-of-00007.bin:   0%|          | 0.00/1.93G [00:00<?, ?B/s][A
+pytorch_model-00006-of-00007.bin:   1%|          | 10.5M/1.93G [00:03<12:03, 2.65MB/s][A
+pytorch_model-00006-of-00007.bin:   1%|          | 21.0M/1.93G [00:07<11:43, 2.71MB/s][A
+pytorch_model-00006-of-00007.bin:   2%|▏         | 31.5M/1.93G [00:12<12:41, 2.49MB/s][A
+pytorch_model-00006-of-00007.bin:   2%|▏         | 41.9M/1.93G [00:16<11:58, 2.63MB/s][A
+pytorch_model-00006-of-00007.bin:   3%|▎         | 52.4M/1.93G [00:20<12:38, 2.47MB/s][A
+pytorch_model-00006-of-00007.bin:   3%|▎         | 62.9M/1.93G [00:23<11:27, 2.71MB/s][A
+pytorch_model-00006-of-00007.bin:   4%|▍         | 73.4M/1.93G [00:27<10:49, 2.85MB/s][A
+pytorch_model-00006-of-00007.bin:   4%|▍         | 83.9M/1.93G [00:30<10:37, 2.89MB/s][A
+pytorch_model-00006-of-00007.bin:   5%|▍         | 94.4M/1.93G [00:34<10:56, 2.79MB/s][A
+pytorch_model-00006-of-00007.bin:   5%|▌         | 105M/1.93G [00:38<10:33, 2.88MB/s] [A
+pytorch_model-00006-of-00007.bin:   6%|▌         | 115M/1.93G [00:42<10:55, 2.77MB/s][A
+pytorch_model-00006-of-00007.bin:   7%|▋         | 126M/1.93G [00:46<11:10, 2.69MB/s][A
+pytorch_model-00006-of-00007.bin:   7%|▋         | 136M/1.93G [00:49<10:29, 2.85MB/s][A
+pytorch_model-00006-of-00007.bin:   8%|▊         | 147M/1.93G [00:53<10:31, 2.82MB/s][A
+pytorch_model-00006-of-00007.bin:   8%|▊         | 157M/1.93G [00:57<10:58, 2.69MB/s][A
+pytorch_model-00006-of-00007.bin:   9%|▊         | 168M/1.93G [01:01<10:50, 2.71MB/s][A
+pytorch_model-00006-of-00007.bin:   9%|▉         | 178M/1.93G [01:05<10:39, 2.74MB/s][A
+pytorch_model-00006-of-00007.bin:  10%|▉         | 189M/1.93G [01:09<10:40, 2.71MB/s][A
+pytorch_model-00006-of-00007.bin:  10%|█         | 199M/1.93G [01:13<10:35, 2.72MB/s][A
+pytorch_model-00006-of-00007.bin:  11%|█         | 210M/1.93G [01:16<10:15, 2.79MB/s][A
+pytorch_model-00006-of-00007.bin:  11%|█▏        | 220M/1.93G [01:20<10:26, 2.72MB/s][A
+pytorch_model-00006-of-00007.bin:  12%|█▏        | 231M/1.93G [01:24<10:12, 2.77MB/s][A
+pytorch_model-00006-of-00007.bin:  13%|█▎        | 241M/1.93G [01:29<11:12, 2.51MB/s][A
+pytorch_model-00006-of-00007.bin:  13%|█▎        | 252M/1.93G [01:33<11:04, 2.52MB/s][A
+pytorch_model-00006-of-00007.bin:  14%|█▎        | 262M/1.93G [01:37<10:38, 2.61MB/s][A
+pytorch_model-00006-of-00007.bin:  14%|█▍        | 273M/1.93G [01:40<10:15, 2.69MB/s][A
+pytorch_model-00006-of-00007.bin:  15%|█▍        | 283M/1.93G [01:45<11:14, 2.44MB/s][A
+pytorch_model-00006-of-00007.bin:  15%|█▌        | 294M/1.93G [01:49<10:24, 2.62MB/s][A
+pytorch_model-00006-of-00007.bin:  16%|█▌        | 304M/1.93G [01:52<09:54, 2.73MB/s][A
+pytorch_model-00006-of-00007.bin:  16%|█▋        | 315M/1.93G [01:56<09:25, 2.85MB/s][A
+pytorch_model-00006-of-00007.bin:  17%|█▋        | 325M/1.93G [01:59<09:25, 2.83MB/s][A
+pytorch_model-00006-of-00007.bin:  17%|█▋        | 336M/1.93G [02:03<09:17, 2.85MB/s][A
+pytorch_model-00006-of-00007.bin:  18%|█▊        | 346M/1.93G [02:07<09:25, 2.80MB/s][A
+pytorch_model-00006-of-00007.bin:  18%|█▊        | 357M/1.93G [02:11<09:25, 2.78MB/s][A
+pytorch_model-00006-of-00007.bin:  19%|█▉        | 367M/1.93G [02:15<09:38, 2.70MB/s][A
+pytorch_model-00006-of-00007.bin:  20%|█▉        | 377M/1.93G [02:19<09:48, 2.64MB/s][A
+pytorch_model-00006-of-00007.bin:  20%|██        | 388M/1.93G [02:23<09:36, 2.67MB/s][A
+pytorch_model-00006-of-00007.bin:  21%|██        | 398M/1.93G [02:27<10:00, 2.54MB/s][A
+pytorch_model-00006-of-00007.bin:  21%|██        | 409M/1.93G [02:31<09:33, 2.65MB/s][A
+pytorch_model-00006-of-00007.bin:  22%|██▏       | 419M/1.93G [02:35<09:11, 2.74MB/s][A
+pytorch_model-00006-of-00007.bin:  22%|██▏       | 430M/1.93G [02:38<09:00, 2.77MB/s][A
+pytorch_model-00006-of-00007.bin:  23%|██▎       | 440M/1.93G [02:44<10:27, 2.37MB/s][A
+pytorch_model-00006-of-00007.bin:  23%|██▎       | 451M/1.93G [02:50<11:21, 2.17MB/s][A
+pytorch_model-00006-of-00007.bin:  24%|██▍       | 461M/1.93G [02:54<10:34, 2.31MB/s][A
+pytorch_model-00006-of-00007.bin:  24%|██▍       | 472M/1.93G [02:57<09:50, 2.46MB/s][A
+pytorch_model-00006-of-00007.bin:  25%|██▌       | 482M/1.93G [03:01<09:30, 2.53MB/s][A
+pytorch_model-00006-of-00007.bin:  26%|██▌       | 493M/1.93G [03:05<09:27, 2.53MB/s][A
+pytorch_model-00006-of-00007.bin:  26%|██▌       | 503M/1.93G [03:09<08:59, 2.64MB/s][A
+pytorch_model-00006-of-00007.bin:  27%|██▋       | 514M/1.93G [03:13<08:46, 2.68MB/s][A
+pytorch_model-00006-of-00007.bin:  27%|██▋       | 524M/1.93G [03:16<08:20, 2.80MB/s][A
+pytorch_model-00006-of-00007.bin:  28%|██▊       | 535M/1.93G [03:21<08:50, 2.63MB/s][A
+pytorch_model-00006-of-00007.bin:  28%|██▊       | 545M/1.93G [03:24<08:36, 2.68MB/s][A
+pytorch_model-00006-of-00007.bin:  29%|██▉       | 556M/1.93G [03:28<08:29, 2.69MB/s][A
+pytorch_model-00006-of-00007.bin:  29%|██▉       | 566M/1.93G [03:33<08:53, 2.55MB/s][A
+pytorch_model-00006-of-00007.bin:  30%|██▉       | 577M/1.93G [03:37<08:32, 2.64MB/s][A
+pytorch_model-00006-of-00007.bin:  30%|███       | 587M/1.93G [03:41<09:04, 2.46MB/s][A
+pytorch_model-00006-of-00007.bin:  31%|███       | 598M/1.93G [03:46<09:09, 2.42MB/s][A
+pytorch_model-00006-of-00007.bin:  32%|███▏      | 608M/1.93G [03:50<08:46, 2.50MB/s][A
+pytorch_model-00006-of-00007.bin:  32%|███▏      | 619M/1.93G [03:54<08:29, 2.57MB/s][A
+pytorch_model-00006-of-00007.bin:  33%|███▎      | 629M/1.93G [03:59<09:07, 2.37MB/s][A
+pytorch_model-00006-of-00007.bin:  33%|███▎      | 640M/1.93G [04:03<08:52, 2.42MB/s][A
+pytorch_model-00006-of-00007.bin:  34%|███▎      | 650M/1.93G [04:07<08:45, 2.43MB/s][A
+pytorch_model-00006-of-00007.bin:  34%|███▍      | 661M/1.93G [04:13<09:18, 2.27MB/s][A
+pytorch_model-00006-of-00007.bin:  35%|███▍      | 671M/1.93G [04:16<08:40, 2.42MB/s][A
+pytorch_model-00006-of-00007.bin:  35%|███▌      | 682M/1.93G [04:20<08:10, 2.54MB/s][A
+pytorch_model-00006-of-00007.bin:  36%|███▌      | 692M/1.93G [04:24<07:48, 2.64MB/s][A
+pytorch_model-00006-of-00007.bin:  36%|███▋      | 703M/1.93G [04:27<07:25, 2.75MB/s][A
+pytorch_model-00006-of-00007.bin:  37%|███▋      | 713M/1.93G [04:31<07:33, 2.68MB/s][A
+pytorch_model-00006-of-00007.bin:  38%|███▊      | 724M/1.93G [04:36<07:57, 2.52MB/s][A
+pytorch_model-00006-of-00007.bin:  38%|███▊      | 734M/1.93G [04:39<07:27, 2.67MB/s][A
+pytorch_model-00006-of-00007.bin:  39%|███▊      | 744M/1.93G [04:45<08:13, 2.40MB/s][A
+pytorch_model-00006-of-00007.bin:  39%|███▉      | 755M/1.93G [04:48<07:36, 2.57MB/s][A
+pytorch_model-00006-of-00007.bin:  40%|███▉      | 765M/1.93G [04:52<07:12, 2.69MB/s][A
+pytorch_model-00006-of-00007.bin:  40%|████      | 776M/1.93G [04:55<07:09, 2.68MB/s][A
+pytorch_model-00006-of-00007.bin:  41%|████      | 786M/1.93G [04:59<06:52, 2.77MB/s][A
+pytorch_model-00006-of-00007.bin:  41%|████▏     | 797M/1.93G [05:02<06:38, 2.84MB/s][A
+pytorch_model-00006-of-00007.bin:  42%|████▏     | 807M/1.93G [05:07<07:17, 2.56MB/s][A
+pytorch_model-00006-of-00007.bin:  42%|████▏     | 818M/1.93G [05:11<07:01, 2.64MB/s][A
+pytorch_model-00006-of-00007.bin:  43%|████▎     | 828M/1.93G [05:15<06:50, 2.68MB/s][A
+pytorch_model-00006-of-00007.bin:  44%|████▎     | 839M/1.93G [05:19<06:43, 2.70MB/s][A
+pytorch_model-00006-of-00007.bin:  44%|████▍     | 849M/1.93G [05:22<06:28, 2.78MB/s][A
+pytorch_model-00006-of-00007.bin:  45%|████▍     | 860M/1.93G [05:26<06:31, 2.73MB/s][A
+pytorch_model-00006-of-00007.bin:  45%|████▌     | 870M/1.93G [05:30<06:18, 2.80MB/s][A
+pytorch_model-00006-of-00007.bin:  46%|████▌     | 881M/1.93G [05:33<06:11, 2.82MB/s][A
+pytorch_model-00006-of-00007.bin:  46%|████▌     | 891M/1.93G [05:37<05:54, 2.93MB/s][A
+pytorch_model-00006-of-00007.bin:  47%|████▋     | 902M/1.93G [05:41<06:00, 2.84MB/s][A
+pytorch_model-00006-of-00007.bin:  47%|████▋     | 912M/1.93G [05:44<05:51, 2.89MB/s][A
+pytorch_model-00006-of-00007.bin:  48%|████▊     | 923M/1.93G [05:47<05:37, 2.98MB/s][A
+pytorch_model-00006-of-00007.bin:  48%|████▊     | 933M/1.93G [05:51<05:35, 2.97MB/s][A
+pytorch_model-00006-of-00007.bin:  49%|████▉     | 944M/1.93G [05:55<05:38, 2.91MB/s][A
+pytorch_model-00006-of-00007.bin:  50%|████▉     | 954M/1.93G [05:59<05:45, 2.81MB/s][A
+pytorch_model-00006-of-00007.bin:  50%|█████     | 965M/1.93G [06:03<05:44, 2.79MB/s][A
+pytorch_model-00006-of-00007.bin:  51%|█████     | 975M/1.93G [06:06<05:43, 2.77MB/s][A
+pytorch_model-00006-of-00007.bin:  51%|█████     | 986M/1.93G [06:10<05:35, 2.81MB/s][A
+pytorch_model-00006-of-00007.bin:  52%|█████▏    | 996M/1.93G [06:14<05:47, 2.68MB/s][A
+pytorch_model-00006-of-00007.bin:  52%|█████▏    | 1.01G/1.93G [06:18<05:47, 2.65MB/s][A
+pytorch_model-00006-of-00007.bin:  53%|█████▎    | 1.02G/1.93G [06:23<06:06, 2.48MB/s][A
+pytorch_model-00006-of-00007.bin:  53%|█████▎    | 1.03G/1.93G [06:27<06:00, 2.50MB/s][A
+pytorch_model-00006-of-00007.bin:  54%|█████▍    | 1.04G/1.93G [06:32<05:57, 2.49MB/s][A
+pytorch_model-00006-of-00007.bin:  54%|█████▍    | 1.05G/1.93G [06:36<05:45, 2.54MB/s][A
+pytorch_model-00006-of-00007.bin:  55%|█████▍    | 1.06G/1.93G [06:40<05:49, 2.48MB/s][A
+pytorch_model-00006-of-00007.bin:  55%|█████▌    | 1.07G/1.93G [06:44<05:33, 2.57MB/s][A
+pytorch_model-00006-of-00007.bin:  56%|█████▌    | 1.08G/1.93G [06:48<05:23, 2.62MB/s][A
+pytorch_model-00006-of-00007.bin:  57%|█████▋    | 1.09G/1.93G [06:52<05:27, 2.56MB/s][A
+pytorch_model-00006-of-00007.bin:  57%|█████▋    | 1.10G/1.93G [06:56<05:19, 2.59MB/s][A
+pytorch_model-00006-of-00007.bin:  58%|█████▊    | 1.11G/1.93G [07:01<05:46, 2.36MB/s][A
+pytorch_model-00006-of-00007.bin:  58%|█████▊    | 1.12G/1.93G [07:05<05:18, 2.53MB/s][A
+pytorch_model-00006-of-00007.bin:  59%|█████▉    | 1.13G/1.93G [07:08<04:57, 2.67MB/s][A
+pytorch_model-00006-of-00007.bin:  59%|█████▉    | 1.14G/1.93G [07:14<05:26, 2.41MB/s][A
+pytorch_model-00006-of-00007.bin:  60%|█████▉    | 1.15G/1.93G [07:17<05:12, 2.48MB/s][A
+pytorch_model-00006-of-00007.bin:  60%|██████    | 1.16G/1.93G [07:22<05:16, 2.41MB/s][A
+pytorch_model-00006-of-00007.bin:  61%|██████    | 1.17G/1.93G [07:26<05:08, 2.44MB/s][A
+pytorch_model-00006-of-00007.bin:  61%|██████▏   | 1.18G/1.93G [07:30<05:01, 2.46MB/s][A
+pytorch_model-00006-of-00007.bin:  62%|██████▏   | 1.20G/1.93G [07:35<04:57, 2.46MB/s][A
+pytorch_model-00006-of-00007.bin:  63%|██████▎   | 1.21G/1.93G [07:38<04:41, 2.56MB/s][A
+pytorch_model-00006-of-00007.bin:  63%|██████▎   | 1.22G/1.93G [07:42<04:35, 2.58MB/s][A
+pytorch_model-00006-of-00007.bin:  64%|██████▎   | 1.23G/1.93G [07:47<04:41, 2.49MB/s][A
+pytorch_model-00006-of-00007.bin:  64%|██████▍   | 1.24G/1.93G [07:51<04:41, 2.45MB/s][A
+pytorch_model-00006-of-00007.bin:  65%|██████▍   | 1.25G/1.93G [07:56<04:34, 2.48MB/s][A
+pytorch_model-00006-of-00007.bin:  65%|██████▌   | 1.26G/1.93G [07:59<04:17, 2.60MB/s][A
+pytorch_model-00006-of-00007.bin:  66%|██████▌   | 1.27G/1.93G [08:03<04:07, 2.66MB/s][A
+pytorch_model-00006-of-00007.bin:  66%|██████▋   | 1.28G/1.93G [08:07<04:06, 2.63MB/s][A
+pytorch_model-00006-of-00007.bin:  67%|██████▋   | 1.29G/1.93G [08:12<04:24, 2.41MB/s][A
+pytorch_model-00006-of-00007.bin:  67%|██████▋   | 1.30G/1.93G [08:16<04:18, 2.43MB/s][A
+pytorch_model-00006-of-00007.bin:  68%|██████▊   | 1.31G/1.93G [08:20<04:09, 2.47MB/s][A
+pytorch_model-00006-of-00007.bin:  69%|██████▊   | 1.32G/1.93G [08:24<03:59, 2.53MB/s][A
+pytorch_model-00006-of-00007.bin:  69%|██████▉   | 1.33G/1.93G [08:28<03:48, 2.61MB/s][A
+pytorch_model-00006-of-00007.bin:  70%|██████▉   | 1.34G/1.93G [08:32<03:43, 2.62MB/s][A
+pytorch_model-00006-of-00007.bin:  70%|███████   | 1.35G/1.93G [08:36<03:35, 2.67MB/s][A
+pytorch_model-00006-of-00007.bin:  71%|███████   | 1.36G/1.93G [08:41<03:45, 2.50MB/s][A
+pytorch_model-00006-of-00007.bin:  71%|███████▏  | 1.37G/1.93G [08:44<03:34, 2.58MB/s][A
+pytorch_model-00006-of-00007.bin:  72%|███████▏  | 1.38G/1.93G [08:49<03:45, 2.41MB/s][A
+pytorch_model-00006-of-00007.bin:  72%|███████▏  | 1.39G/1.93G [08:56<04:10, 2.13MB/s][A
+pytorch_model-00006-of-00007.bin:  73%|███████▎  | 1.41G/1.93G [09:00<03:54, 2.23MB/s][A
+pytorch_model-00006-of-00007.bin:  73%|███████▎  | 1.42G/1.93G [09:04<03:36, 2.37MB/s][A
+pytorch_model-00006-of-00007.bin:  74%|███████▍  | 1.43G/1.93G [09:08<03:24, 2.45MB/s][A
+pytorch_model-00006-of-00007.bin:  75%|███████▍  | 1.44G/1.93G [09:11<03:08, 2.60MB/s][A
+pytorch_model-00006-of-00007.bin:  75%|███████▌  | 1.45G/1.93G [09:14<02:54, 2.75MB/s][A
+pytorch_model-00006-of-00007.bin:  76%|███████▌  | 1.46G/1.93G [09:20<03:18, 2.36MB/s][A
+pytorch_model-00006-of-00007.bin:  76%|███████▌  | 1.47G/1.93G [09:24<03:11, 2.39MB/s][A
+pytorch_model-00006-of-00007.bin:  77%|███████▋  | 1.48G/1.93G [09:29<03:09, 2.37MB/s][A
+pytorch_model-00006-of-00007.bin:  77%|███████▋  | 1.49G/1.93G [09:33<03:01, 2.42MB/s][A
+pytorch_model-00006-of-00007.bin:  78%|███████▊  | 1.50G/1.93G [09:38<03:07, 2.28MB/s][A
+pytorch_model-00006-of-00007.bin:  78%|███████▊  | 1.51G/1.93G [09:44<03:11, 2.18MB/s][A
+pytorch_model-00006-of-00007.bin:  79%|███████▉  | 1.52G/1.93G [09:47<02:55, 2.32MB/s][A
+pytorch_model-00006-of-00007.bin:  79%|███████▉  | 1.53G/1.93G [09:53<03:02, 2.17MB/s][A
+pytorch_model-00006-of-00007.bin:  80%|███████▉  | 1.54G/1.93G [09:58<02:59, 2.14MB/s][A
+pytorch_model-00006-of-00007.bin:  81%|████████  | 1.55G/1.93G [10:03<02:50, 2.20MB/s][A
+pytorch_model-00006-of-00007.bin:  81%|████████  | 1.56G/1.93G [10:06<02:35, 2.34MB/s][A
+pytorch_model-00006-of-00007.bin:  82%|████████▏ | 1.57G/1.93G [10:10<02:24, 2.46MB/s][A
+pytorch_model-00006-of-00007.bin:  82%|████████▏ | 1.58G/1.93G [10:14<02:15, 2.55MB/s][A
+pytorch_model-00006-of-00007.bin:  83%|████████▎ | 1.59G/1.93G [10:18<02:07, 2.61MB/s][A
+pytorch_model-00006-of-00007.bin:  83%|████████▎ | 1.60G/1.93G [10:22<02:03, 2.61MB/s][A
+pytorch_model-00006-of-00007.bin:  84%|████████▍ | 1.61G/1.93G [10:26<01:59, 2.61MB/s][A
+pytorch_model-00006-of-00007.bin:  84%|████████▍ | 1.63G/1.93G [10:30<01:56, 2.60MB/s][A
+pytorch_model-00006-of-00007.bin:  85%|████████▍ | 1.64G/1.93G [10:34<01:56, 2.51MB/s][A
+pytorch_model-00006-of-00007.bin:  85%|████████▌ | 1.65G/1.93G [10:39<01:52, 2.50MB/s][A
+pytorch_model-00006-of-00007.bin:  86%|████████▌ | 1.66G/1.93G [10:44<01:58, 2.29MB/s][A
+pytorch_model-00006-of-00007.bin:  87%|████████▋ | 1.67G/1.93G [10:49<01:54, 2.27MB/s][A
+pytorch_model-00006-of-00007.bin:  87%|████████▋ | 1.68G/1.93G [10:53<01:45, 2.37MB/s][A
+pytorch_model-00006-of-00007.bin:  88%|████████▊ | 1.69G/1.93G [10:57<01:40, 2.39MB/s][A
+pytorch_model-00006-of-00007.bin:  88%|████████▊ | 1.70G/1.93G [11:02<01:39, 2.31MB/s][A
+pytorch_model-00006-of-00007.bin:  89%|████████▊ | 1.71G/1.93G [11:07<01:37, 2.24MB/s][A
+pytorch_model-00006-of-00007.bin:  89%|████████▉ | 1.72G/1.93G [11:13<01:41, 2.05MB/s][A
+pytorch_model-00006-of-00007.bin:  90%|████████▉ | 1.73G/1.93G [11:18<01:34, 2.08MB/s][A
+pytorch_model-00006-of-00007.bin:  90%|█████████ | 1.74G/1.93G [11:25<01:41, 1.84MB/s][A
+pytorch_model-00006-of-00007.bin:  91%|█████████ | 1.75G/1.93G [11:31<01:38, 1.78MB/s][A
+pytorch_model-00006-of-00007.bin:  91%|█████████▏| 1.76G/1.93G [11:37<01:29, 1.85MB/s][A
+pytorch_model-00006-of-00007.bin:  92%|█████████▏| 1.77G/1.93G [11:44<01:31, 1.70MB/s][A
+pytorch_model-00006-of-00007.bin:  92%|█████████▏| 1.78G/1.93G [11:50<01:26, 1.68MB/s][A
+pytorch_model-00006-of-00007.bin:  93%|█████████▎| 1.79G/1.93G [11:58<01:23, 1.60MB/s][A
+pytorch_model-00006-of-00007.bin:  94%|█████████▎| 1.80G/1.93G [12:06<01:25, 1.45MB/s][A
+pytorch_model-00006-of-00007.bin:  94%|█████████▍| 1.81G/1.93G [12:14<01:18, 1.44MB/s][A
+pytorch_model-00006-of-00007.bin:  95%|█████████▍| 1.82G/1.93G [12:19<01:05, 1.58MB/s][A
+pytorch_model-00006-of-00007.bin:  95%|█████████▌| 1.84G/1.93G [12:25<00:55, 1.65MB/s][A
+pytorch_model-00006-of-00007.bin:  96%|█████████▌| 1.85G/1.93G [12:30<00:46, 1.76MB/s][A
+pytorch_model-00006-of-00007.bin:  96%|█████████▋| 1.86G/1.93G [12:36<00:41, 1.73MB/s][A
+pytorch_model-00006-of-00007.bin:  97%|█████████▋| 1.87G/1.93G [12:43<00:37, 1.63MB/s][A
+pytorch_model-00006-of-00007.bin:  97%|█████████▋| 1.88G/1.93G [12:50<00:31, 1.63MB/s][A
+pytorch_model-00006-of-00007.bin:  98%|█████████▊| 1.89G/1.93G [12:55<00:23, 1.73MB/s][A
+pytorch_model-00006-of-00007.bin:  98%|█████████▊| 1.90G/1.93G [13:03<00:18, 1.60MB/s][A
+pytorch_model-00006-of-00007.bin:  99%|█████████▉| 1.91G/1.93G [13:09<00:11, 1.62MB/s][A
+pytorch_model-00006-of-00007.bin: 100%|█████████▉| 1.92G/1.93G [13:14<00:04, 1.75MB/s][A
+pytorch_model-00006-of-00007.bin: 100%|██████████| 1.93G/1.93G [13:17<00:00, 1.95MB/s][Apytorch_model-00006-of-00007.bin: 100%|██████████| 1.93G/1.93G [13:17<00:00, 2.42MB/s]
+Downloading shards:  86%|████████▌ | 6/7 [1:14:16<12:22, 742.77s/it]
+pytorch_model-00007-of-00007.bin:   0%|          | 0.00/1.05G [00:00<?, ?B/s][A
+pytorch_model-00007-of-00007.bin:   1%|          | 10.5M/1.05G [00:04<06:39, 2.61MB/s][A
+pytorch_model-00007-of-00007.bin:   2%|▏         | 21.0M/1.05G [00:07<06:08, 2.80MB/s][A
+pytorch_model-00007-of-00007.bin:   3%|▎         | 31.5M/1.05G [00:12<06:38, 2.56MB/s][A
+pytorch_model-00007-of-00007.bin:   4%|▍         | 41.9M/1.05G [00:16<06:37, 2.54MB/s][A
+pytorch_model-00007-of-00007.bin:   5%|▍         | 52.4M/1.05G [00:20<06:33, 2.54MB/s][A
+pytorch_model-00007-of-00007.bin:   6%|▌         | 62.9M/1.05G [00:24<06:41, 2.47MB/s][A
+pytorch_model-00007-of-00007.bin:   7%|▋         | 73.4M/1.05G [00:28<06:29, 2.52MB/s][A
+pytorch_model-00007-of-00007.bin:   8%|▊         | 83.9M/1.05G [00:32<06:23, 2.53MB/s][A
+pytorch_model-00007-of-00007.bin:   9%|▉         | 94.4M/1.05G [00:36<06:13, 2.57MB/s][A
+pytorch_model-00007-of-00007.bin:  10%|▉         | 105M/1.05G [00:41<06:13, 2.54MB/s] [A
+pytorch_model-00007-of-00007.bin:  11%|█         | 115M/1.05G [00:46<06:36, 2.37MB/s][A
+pytorch_model-00007-of-00007.bin:  12%|█▏        | 126M/1.05G [00:52<07:19, 2.11MB/s][A
+pytorch_model-00007-of-00007.bin:  13%|█▎        | 136M/1.05G [00:59<08:11, 1.87MB/s][A
+pytorch_model-00007-of-00007.bin:  14%|█▍        | 147M/1.05G [01:06<08:48, 1.72MB/s][A
+pytorch_model-00007-of-00007.bin:  15%|█▍        | 157M/1.05G [01:11<07:58, 1.87MB/s][A
+pytorch_model-00007-of-00007.bin:  16%|█▌        | 168M/1.05G [01:15<07:17, 2.02MB/s][A
+pytorch_model-00007-of-00007.bin:  17%|█▋        | 178M/1.05G [01:19<06:34, 2.22MB/s][A
+pytorch_model-00007-of-00007.bin:  18%|█▊        | 189M/1.05G [01:23<06:22, 2.26MB/s][A
+pytorch_model-00007-of-00007.bin:  19%|█▉        | 199M/1.05G [01:27<05:58, 2.38MB/s][A
+pytorch_model-00007-of-00007.bin:  20%|█▉        | 210M/1.05G [01:31<05:37, 2.50MB/s][A
+pytorch_model-00007-of-00007.bin:  21%|██        | 220M/1.05G [01:35<05:33, 2.50MB/s][A
+pytorch_model-00007-of-00007.bin:  22%|██▏       | 231M/1.05G [01:38<05:16, 2.60MB/s][A
+pytorch_model-00007-of-00007.bin:  23%|██▎       | 241M/1.05G [01:43<05:19, 2.54MB/s][A
+pytorch_model-00007-of-00007.bin:  24%|██▍       | 252M/1.05G [01:47<05:21, 2.49MB/s][A
+pytorch_model-00007-of-00007.bin:  25%|██▍       | 262M/1.05G [01:52<05:20, 2.47MB/s][A
+pytorch_model-00007-of-00007.bin:  26%|██▌       | 273M/1.05G [01:56<05:18, 2.45MB/s][A
+pytorch_model-00007-of-00007.bin:  27%|██▋       | 283M/1.05G [02:00<05:10, 2.48MB/s][A
+pytorch_model-00007-of-00007.bin:  28%|██▊       | 294M/1.05G [02:04<05:07, 2.47MB/s][A
+pytorch_model-00007-of-00007.bin:  29%|██▉       | 304M/1.05G [02:09<05:11, 2.40MB/s][A
+pytorch_model-00007-of-00007.bin:  30%|██▉       | 315M/1.05G [02:14<05:15, 2.34MB/s][A
+pytorch_model-00007-of-00007.bin:  31%|███       | 325M/1.05G [02:18<04:58, 2.44MB/s][A
+pytorch_model-00007-of-00007.bin:  32%|███▏      | 336M/1.05G [02:21<04:44, 2.52MB/s][A
+pytorch_model-00007-of-00007.bin:  33%|███▎      | 346M/1.05G [02:26<04:43, 2.49MB/s][A
+pytorch_model-00007-of-00007.bin:  34%|███▍      | 357M/1.05G [02:31<04:58, 2.33MB/s][A
+pytorch_model-00007-of-00007.bin:  35%|███▍      | 367M/1.05G [02:37<05:26, 2.10MB/s][A
+pytorch_model-00007-of-00007.bin:  36%|███▌      | 377M/1.05G [02:42<05:24, 2.08MB/s][A
+pytorch_model-00007-of-00007.bin:  37%|███▋      | 388M/1.05G [02:46<04:58, 2.22MB/s][A
+pytorch_model-00007-of-00007.bin:  38%|███▊      | 398M/1.05G [02:50<04:44, 2.30MB/s][A
+pytorch_model-00007-of-00007.bin:  39%|███▉      | 409M/1.05G [02:55<04:48, 2.23MB/s][A
+pytorch_model-00007-of-00007.bin:  40%|███▉      | 419M/1.05G [02:59<04:32, 2.32MB/s][A
+pytorch_model-00007-of-00007.bin:  41%|████      | 430M/1.05G [03:04<04:23, 2.37MB/s][A
+pytorch_model-00007-of-00007.bin:  42%|████▏     | 440M/1.05G [03:08<04:10, 2.45MB/s][A
+pytorch_model-00007-of-00007.bin:  43%|████▎     | 451M/1.05G [03:12<04:02, 2.49MB/s][A
+pytorch_model-00007-of-00007.bin:  44%|████▍     | 461M/1.05G [03:16<03:57, 2.49MB/s][A
+pytorch_model-00007-of-00007.bin:  45%|████▍     | 472M/1.05G [03:21<04:01, 2.41MB/s][A
+pytorch_model-00007-of-00007.bin:  46%|████▌     | 482M/1.05G [03:25<04:02, 2.35MB/s][A
+pytorch_model-00007-of-00007.bin:  47%|████▋     | 493M/1.05G [03:30<03:57, 2.36MB/s][A
+pytorch_model-00007-of-00007.bin:  48%|████▊     | 503M/1.05G [03:36<04:25, 2.07MB/s][A
+pytorch_model-00007-of-00007.bin:  49%|████▉     | 514M/1.05G [03:42<04:37, 1.94MB/s][A
+pytorch_model-00007-of-00007.bin:  50%|████▉     | 524M/1.05G [03:49<04:48, 1.83MB/s][A
+pytorch_model-00007-of-00007.bin:  51%|█████     | 535M/1.05G [03:53<04:25, 1.95MB/s][A
+pytorch_model-00007-of-00007.bin:  52%|█████▏    | 545M/1.05G [03:58<04:06, 2.06MB/s][A
+pytorch_model-00007-of-00007.bin:  53%|█████▎    | 556M/1.05G [04:02<03:52, 2.14MB/s][A
+pytorch_model-00007-of-00007.bin:  54%|█████▍    | 566M/1.05G [04:06<03:35, 2.26MB/s][A
+pytorch_model-00007-of-00007.bin:  55%|█████▍    | 577M/1.05G [04:11<03:26, 2.30MB/s][A
+pytorch_model-00007-of-00007.bin:  56%|█████▌    | 587M/1.05G [04:15<03:13, 2.41MB/s][A
+pytorch_model-00007-of-00007.bin:  57%|█████▋    | 598M/1.05G [04:19<03:09, 2.40MB/s][A
+pytorch_model-00007-of-00007.bin:  58%|█████▊    | 608M/1.05G [04:23<03:03, 2.43MB/s][A
+pytorch_model-00007-of-00007.bin:  59%|█████▉    | 619M/1.05G [04:27<02:51, 2.54MB/s][A
+pytorch_model-00007-of-00007.bin:  60%|█████▉    | 629M/1.05G [04:31<02:41, 2.62MB/s][A
+pytorch_model-00007-of-00007.bin:  61%|██████    | 640M/1.05G [04:34<02:31, 2.72MB/s][A
+pytorch_model-00007-of-00007.bin:  62%|██████▏   | 650M/1.05G [04:38<02:26, 2.75MB/s][A
+pytorch_model-00007-of-00007.bin:  63%|██████▎   | 661M/1.05G [04:43<02:36, 2.51MB/s][A
+pytorch_model-00007-of-00007.bin:  64%|██████▎   | 671M/1.05G [04:47<02:27, 2.60MB/s][A
+pytorch_model-00007-of-00007.bin:  65%|██████▍   | 682M/1.05G [04:50<02:17, 2.71MB/s][A
+pytorch_model-00007-of-00007.bin:  66%|██████▌   | 692M/1.05G [04:54<02:18, 2.60MB/s][A
+pytorch_model-00007-of-00007.bin:  67%|██████▋   | 703M/1.05G [04:58<02:10, 2.69MB/s][A
+pytorch_model-00007-of-00007.bin:  68%|██████▊   | 713M/1.05G [05:02<02:10, 2.61MB/s][A
+pytorch_model-00007-of-00007.bin:  69%|██████▊   | 724M/1.05G [05:07<02:10, 2.52MB/s][A
+pytorch_model-00007-of-00007.bin:  70%|██████▉   | 734M/1.05G [05:13<02:23, 2.23MB/s][A
+pytorch_model-00007-of-00007.bin:  71%|███████   | 744M/1.05G [05:17<02:13, 2.31MB/s][A
+pytorch_model-00007-of-00007.bin:  72%|███████▏  | 755M/1.05G [05:23<02:17, 2.16MB/s][A
+pytorch_model-00007-of-00007.bin:  73%|███████▎  | 765M/1.05G [05:27<02:07, 2.25MB/s][A
+pytorch_model-00007-of-00007.bin:  74%|███████▎  | 776M/1.05G [05:31<01:56, 2.37MB/s][A
+pytorch_model-00007-of-00007.bin:  75%|███████▍  | 786M/1.05G [05:35<01:55, 2.31MB/s][A
+pytorch_model-00007-of-00007.bin:  76%|███████▌  | 797M/1.05G [05:40<01:50, 2.32MB/s][A
+pytorch_model-00007-of-00007.bin:  77%|███████▋  | 807M/1.05G [05:46<01:55, 2.13MB/s][A
+pytorch_model-00007-of-00007.bin:  78%|███████▊  | 818M/1.05G [05:52<01:56, 2.01MB/s][A
+pytorch_model-00007-of-00007.bin:  79%|███████▊  | 828M/1.05G [05:58<01:57, 1.90MB/s][A
+pytorch_model-00007-of-00007.bin:  80%|███████▉  | 839M/1.05G [06:06<02:08, 1.67MB/s][A
+pytorch_model-00007-of-00007.bin:  81%|████████  | 849M/1.05G [06:10<01:49, 1.87MB/s][A
+pytorch_model-00007-of-00007.bin:  82%|████████▏ | 860M/1.05G [06:14<01:34, 2.04MB/s][A
+pytorch_model-00007-of-00007.bin:  83%|████████▎ | 870M/1.05G [06:18<01:21, 2.23MB/s][A
+pytorch_model-00007-of-00007.bin:  84%|████████▎ | 881M/1.05G [06:22<01:13, 2.35MB/s][A
+pytorch_model-00007-of-00007.bin:  85%|████████▍ | 891M/1.05G [06:26<01:06, 2.42MB/s][A
+pytorch_model-00007-of-00007.bin:  86%|████████▌ | 902M/1.05G [06:29<00:58, 2.58MB/s][A
+pytorch_model-00007-of-00007.bin:  87%|████████▋ | 912M/1.05G [06:33<00:52, 2.68MB/s][A
+pytorch_model-00007-of-00007.bin:  88%|████████▊ | 923M/1.05G [06:37<00:49, 2.65MB/s][A
+pytorch_model-00007-of-00007.bin:  89%|████████▊ | 933M/1.05G [06:40<00:43, 2.76MB/s][A
+pytorch_model-00007-of-00007.bin:  90%|████████▉ | 944M/1.05G [06:45<00:41, 2.63MB/s][A
+pytorch_model-00007-of-00007.bin:  91%|█████████ | 954M/1.05G [06:49<00:37, 2.63MB/s][A
+pytorch_model-00007-of-00007.bin:  92%|█████████▏| 965M/1.05G [06:52<00:32, 2.73MB/s][A
+pytorch_model-00007-of-00007.bin:  93%|█████████▎| 975M/1.05G [06:56<00:27, 2.79MB/s][A
+pytorch_model-00007-of-00007.bin:  94%|█████████▎| 986M/1.05G [07:00<00:24, 2.73MB/s][A
+pytorch_model-00007-of-00007.bin:  95%|█████████▍| 996M/1.05G [07:03<00:20, 2.82MB/s][A
+pytorch_model-00007-of-00007.bin:  96%|█████████▌| 1.01G/1.05G [07:07<00:17, 2.67MB/s][A
+pytorch_model-00007-of-00007.bin:  97%|█████████▋| 1.02G/1.05G [07:11<00:13, 2.67MB/s][A
+pytorch_model-00007-of-00007.bin:  98%|█████████▊| 1.03G/1.05G [07:15<00:09, 2.78MB/s][A
+pytorch_model-00007-of-00007.bin:  99%|█████████▊| 1.04G/1.05G [07:19<00:05, 2.74MB/s][A
+pytorch_model-00007-of-00007.bin: 100%|█████████▉| 1.05G/1.05G [07:23<00:01, 2.75MB/s][A
+pytorch_model-00007-of-00007.bin: 100%|██████████| 1.05G/1.05G [07:24<00:00, 2.79MB/s][Apytorch_model-00007-of-00007.bin: 100%|██████████| 1.05G/1.05G [07:24<00:00, 2.37MB/s]
+Downloading shards: 100%|██████████| 7/7 [1:21:42<00:00, 645.81s/it]Downloading shards: 100%|██████████| 7/7 [1:21:42<00:00, 700.35s/it]
+[INFO|configuration_utils.py:577] 2023-11-29 13:23:46,529 >> Generate config GenerationConfig {
+  "_from_model_config": true,
+  "eos_token_id": 2,
+  "pad_token_id": 0,
+  "transformers_version": "4.30.2"
+}
+
+Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:00<00:04,  1.23it/s]Loading checkpoint shards:  29%|██▊       | 2/7 [00:04<00:13,  2.64s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:09<00:14,  3.54s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [00:12<00:10,  3.38s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [00:13<00:04,  2.46s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [00:14<00:01,  1.90s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:14<00:00,  1.43s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:14<00:00,  2.08s/it]
+[INFO|modeling_utils.py:3295] 2023-11-29 13:24:01,335 >> All model checkpoint weights were used when initializing ChatGLMForConditionalGeneration.
+
+[WARNING|modeling_utils.py:3297] 2023-11-29 13:24:01,335 >> Some weights of ChatGLMForConditionalGeneration were not initialized from the model checkpoint at THUDM/chatglm3-6b and are newly initialized: ['transformer.prefix_encoder.embedding.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+[INFO|modeling_utils.py:2927] 2023-11-29 13:24:02,285 >> Generation config file not found, using a generation config created from the model config.
+Traceback (most recent call last):
+  File "/home/freeview/AICG/ChatGLM3/finetune_chatmodel_demo/finetune.py", line 165, in <module>
+    main()
+  File "/home/freeview/AICG/ChatGLM3/finetune_chatmodel_demo/finetune.py", line 112, in main
+    with open(data_args.train_file, "r", encoding="utf-8") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'formatted_data/tool_alpaca.jsonl'
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 246027) of binary: /usr/bin/python3
+Traceback (most recent call last):
+  File "/home/freeview/.local/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/home/freeview/.local/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/home/freeview/.local/lib/python3.10/site-packages/torch/distributed/run.py", line 794, in main
+    run(args)
+  File "/home/freeview/.local/lib/python3.10/site-packages/torch/distributed/run.py", line 785, in run
+    elastic_launch(
+  File "/home/freeview/.local/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/freeview/.local/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 250, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+finetune.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2023-11-29_13:24:05
+  host      : freeview-Precision-3650-Tower
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 246027)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
